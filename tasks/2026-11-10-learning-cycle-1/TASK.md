@@ -4,7 +4,7 @@ task_type: learning-cycle
 role: founder
 status: open
 created: 2026-11-10
-rework_count: 0
+rework_count: 1
 skills: ["curate-learning", "eval-run", "reflect", "skill-forge"]
 ---
 # Curate the inbox from the three domain tasks, then forge skill updates from the trajectories

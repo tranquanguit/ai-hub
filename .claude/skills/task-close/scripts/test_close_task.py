@@ -50,3 +50,13 @@ def test_close_writes_ledger_and_stats(tmp_path, monkeypatch):
     st = json.loads((tmp_path / ".claude/skills/ops-review/stats.json").read_text())
     assert st["runs"] == 1 and st["passes"] == 1
     assert "status: closed" in (d / "TASK.md").read_text()
+
+
+def test_close_records_stats_for_draft_skill(tmp_path, monkeypatch):
+    m, d = setup(tmp_path, monkeypatch)
+    import shutil
+    shutil.rmtree(tmp_path / ".claude/skills/ops-review")
+    (tmp_path / ".claude/skill-drafts/ops-review").mkdir(parents=True)
+    assert m.main(["--passed", "true"]) == 0
+    st = json.loads((tmp_path / ".claude/skill-drafts/ops-review/stats.json").read_text())
+    assert st["runs"] == 1

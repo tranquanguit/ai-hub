@@ -1,0 +1,89 @@
+{
+ "phase": "Q1-2027",
+ "total_budget_vnd": 300000000,
+ "reserve_vnd": 30000000,
+ "reserve_per_month_vnd": [
+  9000000,
+  9900000,
+  11100000
+ ],
+ "months": [
+  "2027-01",
+  "2027-02",
+  "2027-03"
+ ],
+ "rows": [
+  {
+   "channel": "shopee_ads",
+   "share": 0.234,
+   "amount_vnd": 70201000,
+   "per_month_vnd": [
+    21060000,
+    23166000,
+    25975000
+   ],
+   "expected_orders": 1350,
+   "expected_revenue_vnd": 294844200,
+   "cpa_benchmark": 52000,
+   "roas_benchmark": 4.2
+  },
+  {
+   "channel": "tiktok_ads",
+   "share": 0.2206,
+   "amount_vnd": 66188000,
+   "per_month_vnd": [
+    19856000,
+    21842000,
+    24490000
+   ],
+   "expected_orders": 1018,
+   "expected_revenue_vnd": 238276800,
+   "cpa_benchmark": 65000,
+   "roas_benchmark": 3.6
+  },
+  {
+   "channel": "facebook_ads",
+   "share": 0.18,
+   "amount_vnd": 54000000,
+   "per_month_vnd": [
+    16200000,
+    17820000,
+    19980000
+   ],
+   "expected_orders": 692,
+   "expected_revenue_vnd": 167400000,
+   "cpa_benchmark": 78000,
+   "roas_benchmark": 3.1
+  },
+  {
+   "channel": "koc_affiliate",
+   "share": 0.135,
+   "amount_vnd": 40500000,
+   "per_month_vnd": [
+    12150000,
+    13365000,
+    14985000
+   ],
+   "expected_orders": 578,
+   "expected_revenue_vnd": 133650000,
+   "cpa_benchmark": 70000,
+   "roas_benchmark": 3.3
+  },
+  {
+   "channel": "google_ads",
+   "share": 0.1304,
+   "amount_vnd": 39111000,
+   "per_month_vnd": [
+    11733000,
+    12906000,
+    14472000
+   ],
+   "expected_orders": 411,
+   "expected_revenue_vnd": 101688600,
+   "cpa_benchmark": 95000,
+   "roas_benchmark": 2.6
+  }
+ ],
+ "expected_orders": 4049,
+ "expected_revenue_vnd": 935859600
+}

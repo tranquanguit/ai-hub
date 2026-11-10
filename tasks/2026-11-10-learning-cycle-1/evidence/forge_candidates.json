@@ -1,0 +1,45 @@
+{
+  "new_skills": [],
+  "skill_deltas": [
+    {
+      "item": "memory/inbox/2026-11-10-skill-cs-training-assemble-script.md",
+      "tags": [
+        "cs-training"
+      ],
+      "claim": "cs-training: add scripts/assemble_pack.py to assemble facts, reasoned sections, quiz and answer key into the deliverable",
+      "evidence": "tasks/2026-11-10-cs-training-pack/LEDGER.md"
+    },
+    {
+      "item": "memory/inbox/2026-11-10-skill-ops-review-target-consistency.md",
+      "tags": [
+        "ops-review"
+      ],
+      "claim": "ops-review: script the target-consistency check (implied max CPA = AOV/roas_min) in compute_kpis.py and surface it in the report",
+      "evidence": "tasks/2026-11-10-ops-review-w45/evidence/target_consistency.txt"
+    },
+    {
+      "item": "memory/inbox/2026-11-10-skill-phase-plan-implied-aov.md",
+      "tags": [
+        "phase-plan"
+      ],
+      "claim": "phase-plan: allocate_budget.py should output implied AOV per channel and the expected-vs-goal revenue/orders gap",
+      "evidence": "tasks/2026-11-10-q1-2027-phase-plan/evidence/implied_aov.txt"
+    },
+    {
+      "item": "memory/inbox/2026-11-10-skill-task-close-draft-stats.md",
+      "tags": [
+        "task-close",
+        "task-start"
+      ],
+      "claim": "task-close should record stats for draft skills used in real tasks and avoid the positional-count re.sub DeprecationWarning",
+      "evidence": "tasks/2026-11-10-ops-review-w45/LEDGER.md"
+    }
+  ],
+  "script_candidates": [
+    {
+      "skill": "reflect",
+      "step": "fill reflection",
+      "times": 3
+    }
+  ]
+}

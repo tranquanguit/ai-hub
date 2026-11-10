@@ -7,3 +7,4 @@ Format: `- time [tag] intent -> action -> observation`
 - 19:04:51 [rework] fix check failures -> checker regex fixed (ROAS column + no day counts) + reworded internal 'tốt nhất' -> re-run check
 - 19:05:15 [scripted] verify -> check_review.py; target_consistency calc; canon grep -> evidence/check_review.txt 13/13 PASS; evidence/target_consistency.txt; evidence/canon_tone_grep.txt
 - close [scripted] task-close -> metrics/ledger.jsonl appended -> passed=true, evidence=canon_tone_grep.txt, check_review.txt, kpis.json, kpis.md, target_consistency.txt
+- post-close [rework] correction -> hotline resolution 87.5% retyped wrongly; kpis.json says 86.7% (found by cold-start eval agent, evals/runs/2026-11-10/191204-baseline-drafts-v1.0.0/ops-review/claude_output.json) -> fixed; evidence/check_review_postfix.txt PASS

@@ -49,11 +49,14 @@ def words(s: str) -> set[str]:
 def relevant(goal: str, ttype: str) -> dict:
     kw = words(goal + " " + ttype.replace("-", " "))
     skills = []
-    for sk in sorted((ROOT / ".claude" / "skills").glob("*/SKILL.md")):
-        m = re.search(r"^description:\s*(.+)$", sk.read_text(), re.M)
-        desc = m.group(1) if m else ""
-        if sk.parent.name == ttype or len(kw & words(desc + " " + sk.parent.name.replace("-", " "))) >= 2:
-            skills.append(sk.parent.name)
+    # v1.1.0: also list skill drafts (marked), so a task run on a draft is recorded (trajectory 2026-11-10-ops-review-w45)
+    for base, mark in (("skills", ""), ("skill-drafts", " (draft)")):
+        for sk in sorted((ROOT / ".claude" / base).glob("*/SKILL.md")):
+            m = re.search(r"^description:\s*(.+)$", sk.read_text(), re.M)
+            desc = m.group(1) if m else ""
+            if sk.parent.name == ttype or len(kw & words(desc + " " + sk.parent.name.replace("-", " "))) >= 2:
+                if sk.parent.name not in skills:
+                    skills.append(sk.parent.name + mark)
     facts = []
     idx = ROOT / "memory" / "INDEX.md"
     if idx.exists():
@@ -83,7 +86,7 @@ def start(a) -> Path:
     inputs = "\n".join(f"- `{i}`" for i in a.input) or "- (none)"
     (d / "TASK.md").write_text(
         f"---\ntask: {tid}\ntask_type: {a.type}\nrole: {role}\nstatus: open\ncreated: {date.today().isoformat()}\n"
-        f"rework_count: 0\nskills: {json.dumps(rel['skills'])}\n---\n"
+        f"rework_count: 0\nskills: {json.dumps([x.split(' ')[0] for x in rel['skills']])}\n---\n"
         f"# {a.goal}\n\n## Scope\n{a.scope or 'As stated in the goal; anything else needs the user.'}\n\n"
         f"## Inputs\n{inputs}\n\n## Done-criteria (each needs a file in evidence/)\n{crit}\n\n"
         f"## Relevant skills\n" + ("\n".join(f"- {s}" for s in rel["skills"]) or "- none found: candidate for skill-forge") +
@@ -108,7 +111,7 @@ def log_step(a) -> str:
     if a.rework:
         t = (d / "TASK.md").read_text()
         n = int(re.search(r"rework_count: (\d+)", t).group(1)) + 1
-        (d / "TASK.md").write_text(re.sub(r"rework_count: \d+", f"rework_count: {n}", t, 1))
+        (d / "TASK.md").write_text(re.sub(r"rework_count: \d+", f"rework_count: {n}", t, count=1))
     return line
 
 

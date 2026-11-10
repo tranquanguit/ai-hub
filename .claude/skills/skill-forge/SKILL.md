@@ -25,7 +25,7 @@ description: Creates or updates a skill from real task trajectories, gated by go
 4. Eval the **draft** cold: `python3 evals/run_cold_start.py --task <name> --use-draft <name>`. Compare with the last run of the active skill (`--compare`). If the skill has no golden task, create one under `evals/golden/<name>/` from a real input first (Phase 7 format).
 5. Record it: `forge.py changelog <name> --version <x.y.z> --why "<hypothesis + result>" --evidence <ledger/episode path> --eval-before <results.json> --eval-after <results.json>`.
 6. Promote: `python3 tools/promote.py skill <name> --eval <after results.json>`. Promotion refuses on any failing golden result (R6). If refused, delete the draft (`rm -r .claude/skill-drafts/<name>`, which needs human approval), log the attempt in `metrics/IMPROVEMENTS.md` as **reverted**, and stop.
-7. Delete the inbox `skill-delta` items you consumed: `promote.py reject <item> --reason "applied in <name> v<x.y.z>"`.
+7. Archive the inbox `skill-delta` items you consumed: `python3 tools/promote.py applied <item> --where "<name> v<x.y.z>"` (not `reject`: the delta was used, not refused).
 
 ## Memory facts used
 - Facts referenced by the skill's own "Memory facts used" section.

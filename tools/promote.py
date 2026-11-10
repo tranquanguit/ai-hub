@@ -6,6 +6,7 @@ Memory (curator):
   promote.py apply <inbox-file>          verified new fact -> memory/semantic/<slug>.md (or merge/conflict)
   promote.py reject <inbox-file> --reason TEXT
   promote.py conflict <inbox-file>       force set-aside to memory/conflicts/
+  promote.py applied <inbox-file> --where "skill v1.1.0"   a skill-delta/question acted on
   promote.py bump <fact-slug> --helpful|--harmful|--used
   promote.py resolve <conflict-file> --keep new|old   (human decision)
   promote.py archive <fact-slug> --reason TEXT        (prune, after approval)
@@ -209,6 +210,15 @@ def cmd_reject(a) -> int:
     return 0
 
 
+def cmd_applied(a) -> int:
+    """A skill-delta or question that has been acted on: archived under applied/ with where it went."""
+    it = Path(a.item)
+    dst = _move(it, paths()["archive"] / "applied", {"applied": today(), "applied_in": a.where})
+    log("applied", it.name, a.where)
+    print(f"applied -> {dst.relative_to(ROOT)}")
+    return 0
+
+
 def cmd_conflict(a) -> int:
     it = Path(a.item)
     dst = _move(it, paths()["conflicts"], {"conflict_reason": a.reason or "set aside by curator"})
@@ -366,6 +376,7 @@ def main(argv=None) -> int:
     sp.add_parser("lint").set_defaults(f=cmd_lint)
     p = sp.add_parser("apply"); p.add_argument("item"); p.set_defaults(f=cmd_apply)
     p = sp.add_parser("reject"); p.add_argument("item"); p.add_argument("--reason", required=True); p.set_defaults(f=cmd_reject)
+    p = sp.add_parser("applied"); p.add_argument("item"); p.add_argument("--where", required=True); p.set_defaults(f=cmd_applied)
     p = sp.add_parser("conflict"); p.add_argument("item"); p.add_argument("--reason", default=""); p.set_defaults(f=cmd_conflict)
     p = sp.add_parser("bump"); p.add_argument("fact")
     for fl in ("--helpful", "--harmful", "--used"):

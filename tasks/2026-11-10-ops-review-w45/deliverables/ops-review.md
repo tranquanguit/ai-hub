@@ -41,7 +41,7 @@ Lưu ý: Daily Light Sunscreen không được mô tả là "nâng tone" trong `
 | tiktok_shop_chat | 206 | 88.3% | 9.1 | 31.8 | 4.41 | 0 |
 | shopee_chat | 158 | 88.0% | 7.8 | 11.2 | 4.41 | 1 |
 | facebook_inbox | 176 | 89.8% | 8.9 | 11.7 | 4.58 | 0 |
-| hotline | 128 | 87.5% | 10.7 | 12.4 | 4.51 | 0 |
+| hotline | 128 | 86.7% | 10.7 | 12.4 | 4.51 | 0 |
 
 Ca kích ứng da (Shopee, 05/11) phải được báo Founder theo quy trình. Báo cáo này không chứa thông tin cá nhân khách hàng; chi tiết ca nằm ở `data/cs/private/`.
 
@@ -55,7 +55,7 @@ Ca kích ứng da (Shopee, 05/11) phải được báo Founder theo quy trình. 
 7. son tint lâu trôi: Marketing cập nhật trang /son (thêm 6 bảng màu, review đã kiểm duyệt, internal link từ 2 bài blog); kiểm tra lại hạng sau 14 ngày (mục tiêu ≤ 20).
 8. tiktok_shop_chat: CS bổ sung 1 ca trực cuối tuần 8:00–22:00; mục tiêu FRT max ≤ 15 phút, kiểm tra lại sau 7 ngày.
 9. shopee_chat: CS báo Founder ca kích ứng da ngày 05/11 trong hôm nay (xin ảnh, mã đơn, lô sản xuất); Founder liên hệ nhà sản xuất nếu có ≥ 2 ca cùng lô trong 30 ngày.
-10. facebook_inbox, hotline, shopee_chat, tiktok_shop_chat: CS rà soát toàn bộ ticket chưa giải quyết (tỷ lệ 87.5–89.8%), phân loại nguyên nhân; mục tiêu ≥ 90% sau 7 ngày.
+10. facebook_inbox, hotline, shopee_chat, tiktok_shop_chat: CS rà soát toàn bộ ticket chưa giải quyết (tỷ lệ 86.7–89.8%), phân loại nguyên nhân; mục tiêu ≥ 90% sau 7 ngày.
 11. Mục tiêu: Founder xác nhận lại CPA tối đa. Ở ROAS 2.0 và AOV ~385,000 VND, CPA hòa vốn mục tiêu ≈ 192,000 VND, nên ngưỡng 90,000 VND đang gắn cờ cả các chiến dịch đạt ROAS. Cần chốt trong 3 ngày.
 
 ## English summary

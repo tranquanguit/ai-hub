@@ -1,0 +1,57 @@
+{
+ "run": "evals/runs/2026-11-10/191204-baseline-drafts-v1.0.0",
+ "date": "2026-11-10T19:12:04+00:00",
+ "commit": "553fe3d",
+ "model": "sonnet",
+ "label": "baseline-drafts-v1.0.0",
+ "results": [
+  {
+   "task": "cs-training",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "cs-training",
+   "tokens_in": 527363,
+   "tokens_out": 4649,
+   "cost_usd": 0.2107983,
+   "turns": 15,
+   "duration_s": 73.7,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": []
+  },
+  {
+   "task": "ops-review",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "ops-review",
+   "tokens_in": 678114,
+   "tokens_out": 6973,
+   "cost_usd": 0.2462954,
+   "turns": 22,
+   "duration_s": 69.3,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": []
+  },
+  {
+   "task": "phase-plan",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "phase-plan",
+   "tokens_in": 629174,
+   "tokens_out": 5432,
+   "cost_usd": 0.23447590000000001,
+   "turns": 16,
+   "duration_s": 64.9,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": []
+  }
+ ]
+}

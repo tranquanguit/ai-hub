@@ -1,0 +1,91 @@
+{
+ "passed": true,
+ "score": 1.0,
+ "checks": [
+  {
+   "name": "task_folder_created",
+   "ok": true,
+   "info": "task-start was used"
+  },
+  {
+   "name": "deliverable_exists",
+   "ok": true,
+   "info": "ops-review.md"
+  },
+  {
+   "name": "evidence_saved",
+   "ok": true,
+   "info": "5 evidence files"
+  },
+  {
+   "name": "scripted_step_logged",
+   "ok": true,
+   "info": "deterministic step ran as a script"
+  },
+  {
+   "name": "content:section:summary",
+   "ok": true,
+   "info": "tóm tắt|summary"
+  },
+  {
+   "name": "content:section:ads",
+   "ok": true,
+   "info": "quảng cáo|ads"
+  },
+  {
+   "name": "content:section:seo",
+   "ok": true,
+   "info": "\\bseo\\b"
+  },
+  {
+   "name": "content:section:cs",
+   "ok": true,
+   "info": "cskh|customer service"
+  },
+  {
+   "name": "content:section:recommendations",
+   "ok": true,
+   "info": "đề xuất|khuyến nghị|recommendation"
+  },
+  {
+   "name": "content:section:english_summary",
+   "ok": true,
+   "info": "english summary"
+  },
+  {
+   "name": "content:every_flag_has_recommendation",
+   "ok": true,
+   "info": "not addressed: []"
+  },
+  {
+   "name": "content:recommendations_have_owner_and_metric",
+   "ok": true,
+   "info": "0 lines lack owner or number: []"
+  },
+  {
+   "name": "content:quoted_roas_matches_kpis",
+   "ok": true,
+   "info": "[]"
+  },
+  {
+   "name": "content:skin_reaction_escalated",
+   "ok": true,
+   "info": "skin-reaction reports must be escalated to the founder"
+  },
+  {
+   "name": "content:sample_disclosed",
+   "ok": true,
+   "info": "SAMPLE data must be disclosed"
+  },
+  {
+   "name": "content:no_banned_claims",
+   "ok": true,
+   "info": "banned claim found"
+  },
+  {
+   "name": "content:no_pii",
+   "ok": true,
+   "info": "customer personal data found"
+  }
+ ]
+}

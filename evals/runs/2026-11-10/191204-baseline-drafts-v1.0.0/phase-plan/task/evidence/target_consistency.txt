@@ -1,0 +1,4 @@
+AOV = revenue/conversions = 172,887,000/449 = 385,049 VND
+implied max CPA at roas_min 2.0 = AOV/roas_min = 192,524 VND
+cpa_max_vnd target = 90,000 VND -> consistent: False
+rule: targets are consistent only if cpa_max >= AOV/roas_min; otherwise CPA flags fire on campaigns that meet ROAS

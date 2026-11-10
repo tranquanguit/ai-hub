@@ -1,0 +1,101 @@
+{
+ "passed": true,
+ "score": 1.0,
+ "checks": [
+  {
+   "name": "task_folder_created",
+   "ok": true,
+   "info": "task-start was used"
+  },
+  {
+   "name": "deliverable_exists",
+   "ok": true,
+   "info": "cs-training.md"
+  },
+  {
+   "name": "evidence_saved",
+   "ok": true,
+   "info": "5 evidence files"
+  },
+  {
+   "name": "scripted_step_logged",
+   "ok": true,
+   "info": "deterministic step ran as a script"
+  },
+  {
+   "name": "content:section:products",
+   "ok": true,
+   "info": "sản phẩm|product"
+  },
+  {
+   "name": "content:section:segments",
+   "ok": true,
+   "info": "phân khúc|segment"
+  },
+  {
+   "name": "content:section:protocol",
+   "ok": true,
+   "info": "quy trình|protocol"
+  },
+  {
+   "name": "content:section:dialogues",
+   "ok": true,
+   "info": "kịch bản|hội thoại|dialogue|script"
+  },
+  {
+   "name": "content:section:faq",
+   "ok": true,
+   "info": "câu hỏi thường gặp|faq"
+  },
+  {
+   "name": "content:section:quiz",
+   "ok": true,
+   "info": "kiểm tra|quiz"
+  },
+  {
+   "name": "content:section:english_summary",
+   "ok": true,
+   "info": "english summary"
+  },
+  {
+   "name": "content:all_skus_with_price",
+   "ok": true,
+   "info": "missing/incorrect: []"
+  },
+  {
+   "name": "content:segments_covered",
+   "ok": true,
+   "info": "missing: []"
+  },
+  {
+   "name": "content:protocol_elements",
+   "ok": true,
+   "info": "missing: []"
+  },
+  {
+   "name": "content:dialogues>=4",
+   "ok": true,
+   "info": "found 5"
+  },
+  {
+   "name": "content:quiz_answers_match_sheet",
+   "ok": true,
+   "info": "answers not found for questions []"
+  },
+  {
+   "name": "content:no_banned_claims",
+   "ok": true,
+   "info": "found []"
+  },
+  {
+   "name": "content:no_pii",
+   "ok": true,
+   "info": "customer personal data found"
+  },
+  {
+   "name": "content:sample_disclosed",
+   "ok": true,
+   "info": "built on SAMPLE sheet; must say so"
+  }
+ ]
+}

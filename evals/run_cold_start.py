@@ -61,7 +61,13 @@ def make_workspace(draft: str | None) -> Path:
         if dst.exists():
             shutil.rmtree(dst)
         shutil.copytree(src, dst, ignore=shutil.ignore_patterns("__pycache__"))
+    # Cold start: no previous work products. Finished task folders would let the agent copy an old
+    # deliverable instead of doing the task (found in the first baseline run). Learned memory stays.
+    for t in (ws / "tasks").glob("*"):
+        if t.is_dir():
+            shutil.rmtree(t)
     (ws / ".claude" / "state").mkdir(parents=True, exist_ok=True)
+    (ws / ".claude" / "state" / "current_task").unlink(missing_ok=True)
     return ws
 
 
@@ -128,7 +134,8 @@ def run_task(task: str, model: str, draft: str | None, outdir: Path, keep: bool 
 
 
 def previous_results(exclude: Path | None) -> Path | None:
-    runs = sorted(p for p in RUNS.glob("*/*/results.json") if exclude is None or p.parent != exclude)
+    runs = sorted(p for p in RUNS.glob("*/*/results.json")
+                  if (exclude is None or p.parent != exclude) and not (p.parent / "INVALID.md").exists())
     return runs[-1] if runs else None
 
 
@@ -197,7 +204,7 @@ def main(argv=None) -> int:
             print(json.dumps(load_grader(t).grade(Path(a.grade_only)), indent=1, ensure_ascii=False))
         return 0
     if a.compare_only:
-        runs = sorted(RUNS.glob("*/*/results.json"))
+        runs = sorted(p for p in RUNS.glob("*/*/results.json") if not (p.parent / "INVALID.md").exists())
         if len(runs) < 2:
             print("need two runs")
             return 0

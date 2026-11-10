@@ -4,7 +4,7 @@ task_type: ops-review
 role: founder
 status: done
 created: 2026-11-10
-rework_count: 1
+rework_count: 2
 skills: []
 ---
 # Đánh giá vận hành tuần 2026-11-03..09 (ads, SEO, CSKH) và đề xuất điều chỉnh

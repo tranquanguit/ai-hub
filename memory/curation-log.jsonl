@@ -15,3 +15,8 @@
 {"ts": "2026-11-10T19:09:05+00:00", "action": "reject", "item": "2026-11-10-cs-tiktok-shop-weekend-staffing.md", "reason": "verification kind 'self' is not external feedback (R2: test/tool/eval/human only)"}
 {"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-policy-free-shipping-threshold-vnd.md", "reason": "verified, sourced, new key", "fact": "policy.free-shipping.threshold-vnd"}
 {"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-product-lb-sun-01-claim-tone-up.md", "reason": "verified, sourced, new key", "fact": "product.lb-sun-01.claim.tone-up"}
+{"ts": "2026-11-10T19:12:45+00:00", "action": "skill-promote", "item": "task-close", "reason": "version 1.1.0", "eval": null}
+{"ts": "2026-11-10T19:12:45+00:00", "action": "skill-promote", "item": "task-start", "reason": "version 1.1.0", "eval": null}
+{"ts": "2026-11-10T19:12:45+00:00", "action": "reject", "item": "2026-11-10-skill-task-close-draft-stats.md", "reason": "applied in task-close v1.1.0 and task-start v1.1.0 (skill-forge)"}
+{"ts": "2026-11-10T19:13:12+00:00", "action": "applied", "item": "2026-11-10-skill-task-close-draft-stats.md", "reason": "re-filed from rejected/ (was consumed, not rejected)"}
+{"ts": "2026-11-10T19:13:13+00:00", "action": "skill-promote", "item": "skill-forge", "reason": "version 1.0.1", "eval": null}

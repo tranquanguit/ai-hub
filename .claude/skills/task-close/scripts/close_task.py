@@ -99,13 +99,14 @@ def main(argv=None) -> int:
         print(r.stderr)
         return 1
     for s in skills:
-        if (ROOT / ".claude" / "skills" / s).exists():
+        # v1.1.0: drafts used in a real task get their run recorded too (trajectory 2026-11-10-ops-review-w45)
+        if (ROOT / ".claude" / "skills" / s).exists() or (ROOT / ".claude" / "skill-drafts" / s).exists():
             sargs = [sys.executable, str(ROOT / "tools" / "skill_stats.py"), "record", s,
                      "--result", "pass" if a.passed == "true" else "fail"]
             if a.passed != "true":
                 sargs += ["--failure", a.failure or "verification failed"]
             subprocess.run(sargs, capture_output=True, text=True)
-    (d / "TASK.md").write_text(re.sub(r"status: open", "status: closed", t, 1))
+    (d / "TASK.md").write_text(re.sub(r"status: open", "status: closed", t, count=1))
     with (d / "LEDGER.md").open("a") as fh:
         fh.write(f"- close [scripted] task-close -> metrics/ledger.jsonl appended -> passed={a.passed}, evidence={', '.join(ev)}\n")
     print(f"closed {d.name}: passed={a.passed} scripted={c['scripted']} reasoned={c['reasoned']} "

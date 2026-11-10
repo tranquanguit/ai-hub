@@ -25,6 +25,8 @@ DEFAULT = {"runs": 0, "passes": 0, "failures": 0, "last_failure": None, "version
 
 def load(skill: str) -> tuple[Path, dict]:
     p = SKILLS / skill / "stats.json"
+    if not p.parent.exists():  # a draft used in a real task (its stats carry over on promotion)
+        p = SKILLS.parent / "skill-drafts" / skill / "stats.json"
     if not p.parent.exists():
         raise SystemExit(f"unknown skill: {skill}")
     d = {**DEFAULT, **(json.loads(p.read_text()) if p.exists() else {})}

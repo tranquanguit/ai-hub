@@ -1,0 +1,9 @@
+{
+  "_doc": "Role = tenant boundary (RULES R17). data_areas: folders under data/ the role may read/write. private: may open data/<area>/private/ (raw customer records). Enforced by .claude/hooks/pre_tool_use.py.",
+  "roles": {
+    "founder":   {"data_areas": ["*"], "private": true,  "canon": "canon/roles/founder.md"},
+    "marketing": {"data_areas": ["marketing", "shared"], "private": false, "canon": "canon/roles/marketing.md"},
+    "sales":     {"data_areas": ["sales", "shared"], "private": false, "canon": "canon/roles/sales.md"},
+    "cs":        {"data_areas": ["cs", "shared"], "private": true,  "canon": "canon/roles/cs.md"}
+  }
+}

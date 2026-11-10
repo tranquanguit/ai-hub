@@ -1,0 +1,10 @@
+{
+ "_note": "SAMPLE targets for ops-review (founder to confirm)",
+ "roas_min": 2.0,
+ "cpa_max_vnd": 90000,
+ "ctr_min": 0.008,
+ "cs_first_response_max_min": 15,
+ "csat_min": 4.5,
+ "resolution_rate_min": 0.9,
+ "period": "2026-11-03..2026-11-09"
+}

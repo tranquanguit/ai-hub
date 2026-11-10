@@ -1,0 +1,9 @@
+{
+  "skill": "ops-review",
+  "task_type": "ops-review",
+  "deliverable": "ops-review.md",
+  "role": "founder",
+  "max_turns": 60,
+  "input_ref": "inputs/SAMPLE-ops-export/ (founder's frequent task #3, SAMPLE input chosen at intake)",
+  "prompt": "Mình là founder. Đây là export tuần 03–09/11/2026 ở inputs/SAMPLE-ops-export/ (ads, SEO, CSKH). Hãy đánh giá vận hành tuần này và đề xuất điều chỉnh chiến lược, làm theo đúng quy trình của repo và lưu báo cáo cuối cùng trong thư mục task."
+}

@@ -1,0 +1,6 @@
+shopee_ads implied AOV = 218400.0
+tiktok_ads implied AOV = 234000.0
+facebook_ads implied AOV = 241800.0
+koc_affiliate implied AOV = 231000.0
+google_ads implied AOV = 247000.0
+blended implied AOV 231133.51444801185

@@ -61,9 +61,10 @@ def validate(skill_dir: Path) -> list[str]:
     for s in REQUIRED_SECTIONS:
         if not any(h.startswith(s.lower()) or s.lower() in h for h in heads):
             errs.append(f"{n}: missing section '## {s}...'")
-    for ref in set(re.findall(r"\b((?:scripts|references|assets)/[A-Za-z0-9_./-]+\.[a-z]{1,4})\b", body)):
-        if not (skill_dir / ref).exists():
-            errs.append(f"{n}: referenced file missing: {ref}")
+    for owner, ref in set(re.findall(r"(?:\.claude/skills/([a-z0-9-]+)/)?\b((?:scripts|references|assets)/[A-Za-z0-9_./-]+\.[a-z]{1,4})\b", body)):
+        base = skill_dir if not owner or owner == n else ROOT / ".claude" / "skills" / owner
+        if not (base / ref).exists() and not (skill_dir.parent / owner / ref).exists():
+            errs.append(f"{n}: referenced file missing: {(owner + '/') if owner and owner != n else ''}{ref}")
     st = skill_dir / "stats.json"
     if not st.exists():
         errs.append(f"{n}: stats.json missing")

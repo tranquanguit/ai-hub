@@ -15,7 +15,7 @@ import common as c  # noqa: E402
 
 
 def failing_evals() -> list[str]:
-    runs = sorted((c.ROOT / "evals" / "runs").glob("*/results.json"))
+    runs = sorted((c.ROOT / "evals" / "runs").glob("*/*/results.json"))  # runs/<date>/<time-label>/
     if not runs:
         return []
     try:

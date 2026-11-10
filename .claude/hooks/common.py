@@ -66,11 +66,12 @@ def frontmatter(path: Path) -> dict:
 
 
 def current_task() -> Path | None:
-    """The open task this checkout is working on (pointer written by task-start)."""
+    """The task this checkout is working on (pointer written by task-start, cleared by reflect).
+    Lifecycle: open -> closed (task-close, evidence saved) -> done (reflect, episodic note written)."""
     p = STATE / "current_task"
     if p.exists():
         d = ROOT / p.read_text().strip()
-        if (d / "TASK.md").exists() and frontmatter(d / "TASK.md").get("status", "open") == "open":
+        if (d / "TASK.md").exists() and frontmatter(d / "TASK.md").get("status", "open") in ("open", "closed"):
             return d
     return None
 

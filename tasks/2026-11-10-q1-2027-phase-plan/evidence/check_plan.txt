@@ -1,0 +1,17 @@
+PASS  section:channels
+PASS  section:regions
+PASS  section:audiences
+PASS  section:budget
+PASS  section:channel_strategy
+PASS  section:kpi
+PASS  section:timeline
+PASS  section:risks
+PASS  section:assumptions
+PASS  section:english_summary
+PASS  budget_total_matches_brief
+PASS  strategy_per_channel
+PASS  kpi_has_numbers
+PASS  sample_disclosed
+PASS  no_banned_claims
+PASS  no_pii
+score 16/16  =>  PASS

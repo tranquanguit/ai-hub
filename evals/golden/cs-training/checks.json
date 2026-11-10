@@ -1,0 +1,5 @@
+{
+  "_doc": "Checks run by grade.py. Deterministic only; no LLM judge needed for these criteria.",
+  "critical": ["task_folder_created", "deliverable_exists", "content:* (frozen skill checker)"],
+  "non_critical": ["evidence_saved", "scripted_step_logged"]
+}

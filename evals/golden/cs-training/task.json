@@ -1,0 +1,9 @@
+{
+  "skill": "cs-training",
+  "task_type": "cs-training",
+  "deliverable": "cs-training.md",
+  "role": "founder",
+  "max_turns": 60,
+  "input_ref": "inputs/SAMPLE-product-sheet.md (founder's frequent task #2, SAMPLE input chosen at intake)",
+  "prompt": "Mình là founder. Hãy soạn bộ tài liệu đào tạo nhân viên CSKH mới từ product sheet ở inputs/SAMPLE-product-sheet.md: hiểu sản phẩm, phân khúc khách hàng và quy trình phục vụ, kèm bài kiểm tra. Làm theo đúng quy trình của repo và lưu tài liệu cuối cùng trong thư mục task."
+}

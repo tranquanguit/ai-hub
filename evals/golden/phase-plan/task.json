@@ -1,0 +1,9 @@
+{
+  "skill": "phase-plan",
+  "task_type": "phase-plan",
+  "deliverable": "phase-plan.md",
+  "role": "founder",
+  "max_turns": 60,
+  "input_ref": "inputs/SAMPLE-phase-brief.md (founder's frequent task #1, SAMPLE input chosen at intake)",
+  "prompt": "Mình là founder. Brief giai đoạn Q1/2027 ở inputs/SAMPLE-phase-brief.md. Hãy lập kế hoạch giai đoạn: kênh bán hàng, khu vực trọng điểm, khách hàng mục tiêu, ngân sách theo kênh và theo tháng, chiến lược từng kênh, KPI. Làm theo đúng quy trình của repo và lưu kế hoạch cuối cùng trong thư mục task."
+}

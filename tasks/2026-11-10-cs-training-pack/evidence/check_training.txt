@@ -1,0 +1,16 @@
+PASS  section:products
+PASS  section:segments
+PASS  section:protocol
+PASS  section:dialogues
+PASS  section:faq
+PASS  section:quiz
+PASS  section:english_summary
+PASS  all_skus_with_price
+PASS  segments_covered
+PASS  protocol_elements
+PASS  dialogues>=4
+PASS  quiz_answers_match_sheet
+PASS  no_banned_claims
+PASS  no_pii
+PASS  sample_disclosed
+score 15/15  =>  PASS

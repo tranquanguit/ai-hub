@@ -1,0 +1,17 @@
+{"ts": "2026-11-10T18:58:52+00:00", "action": "skill-promote", "item": "task-start", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:53+00:00", "action": "skill-promote", "item": "task-close", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:53+00:00", "action": "skill-promote", "item": "reflect", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:54+00:00", "action": "skill-promote", "item": "curate-learning", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:54+00:00", "action": "skill-promote", "item": "skill-forge", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:55+00:00", "action": "skill-promote", "item": "paper-ingest", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:55+00:00", "action": "skill-promote", "item": "eval-run", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:55+00:00", "action": "skill-promote", "item": "prune", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T18:58:55+00:00", "action": "skill-promote", "item": "improve", "reason": "version 1.0.0", "eval": null}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-ads-benchmarks-implied-aov.md", "reason": "verified, sourced, new key", "fact": "ads.benchmarks.implied-aov"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-ads-targets-cpa-roas-consistency.md", "reason": "verified, sourced, new key", "fact": "ads.targets.cpa-roas-consistency"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-benchmark-tiktok-ads-roas-2.md", "reason": "verified, sourced, new key", "fact": "benchmark.tiktok-ads.roas"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "conflict", "item": "2026-11-10-benchmark-tiktok-ads-roas.md", "reason": "same key 'benchmark.tiktok_ads.roas' but value '1.2' != existing '3.6' (R4)", "fact": "benchmark.tiktok-ads.roas"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-claims-acne-phrasing.md", "reason": "verified, sourced, new key", "fact": "claims.acne.phrasing"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "reject", "item": "2026-11-10-cs-tiktok-shop-weekend-staffing.md", "reason": "verification kind 'self' is not external feedback (R2: test/tool/eval/human only)"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-policy-free-shipping-threshold-vnd.md", "reason": "verified, sourced, new key", "fact": "policy.free-shipping.threshold-vnd"}
+{"ts": "2026-11-10T19:09:05+00:00", "action": "add", "item": "2026-11-10-product-lb-sun-01-claim-tone-up.md", "reason": "verified, sourced, new key", "fact": "product.lb-sun-01.claim.tone-up"}

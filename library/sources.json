@@ -1,0 +1,222 @@
+{
+ "papers": [
+  {
+   "id": "2309.02427",
+   "title": "Cognitive Architectures for Language Agents"
+  },
+  {
+   "id": "2210.03629",
+   "title": "ReAct"
+  },
+  {
+   "id": "2303.11366",
+   "title": "Reflexion"
+  },
+  {
+   "id": "2305.16291",
+   "title": "Voyager"
+  },
+  {
+   "id": "2308.10144",
+   "title": "ExpeL"
+  },
+  {
+   "id": "2409.07429",
+   "title": "Agent Workflow Memory"
+  },
+  {
+   "id": "2510.04618",
+   "title": "Agentic Context Engineering"
+  },
+  {
+   "id": "2504.07952",
+   "title": "Dynamic Cheatsheet"
+  },
+  {
+   "id": "2310.08560",
+   "title": "MemGPT"
+  },
+  {
+   "id": "2304.03442",
+   "title": "Generative Agents"
+  },
+  {
+   "id": "2502.12110",
+   "title": "A-MEM"
+  },
+  {
+   "id": "2404.13501",
+   "title": "Survey on the Memory Mechanism of Large Language Model based Agents"
+  },
+  {
+   "id": "2303.17651",
+   "title": "Self-Refine"
+  },
+  {
+   "id": "2305.11738",
+   "title": "CRITIC"
+  },
+  {
+   "id": "2310.01798",
+   "title": "Large Language Models Cannot Self-Correct Reasoning Yet"
+  },
+  {
+   "id": "2309.11495",
+   "title": "Chain-of-Verification"
+  },
+  {
+   "id": "2307.03172",
+   "title": "Lost in the Middle"
+  },
+  {
+   "id": "2405.15793",
+   "title": "SWE-agent"
+  },
+  {
+   "id": "2407.01489",
+   "title": "Agentless"
+  },
+  {
+   "id": "2310.06770",
+   "title": "SWE-bench"
+  },
+  {
+   "id": "2306.05685",
+   "title": "Judging LLM-as-a-Judge"
+  },
+  {
+   "id": "2310.03714",
+   "title": "DSPy"
+  }
+ ],
+ "docs": [
+  {
+   "id": "cc-memory",
+   "url": "https://code.claude.com/docs/en/memory.md",
+   "title": "",
+   "takeaway": "CLAUDE.md loads every session (target <200 lines); @imports; AGENTS.md is read only if imported when CLAUDE.md exists; auto memory toggle."
+  },
+  {
+   "id": "cc-skills",
+   "url": "https://code.claude.com/docs/en/skills.md",
+   "title": "",
+   "takeaway": "Skill frontmatter fields; names+descriptions always listed (desc+when_to_use capped at 1,536 chars); body loads on invoke and persists in context."
+  },
+  {
+   "id": "cc-hooks",
+   "url": "https://code.claude.com/docs/en/hooks.md",
+   "title": "",
+   "takeaway": "Hook events and JSON I/O: PreToolUse permissionDecision deny, Stop decision block + stop_hook_active, PreCompact stdout steers summary, SessionEnd 1.5s default timeout."
+  },
+  {
+   "id": "cc-hooks-guide",
+   "url": "https://code.claude.com/docs/en/hooks-guide.md",
+   "title": "",
+   "takeaway": "Practical hook recipes; hooks give deterministic control instead of relying on the model to choose."
+  },
+  {
+   "id": "cc-sub-agents",
+   "url": "https://code.claude.com/docs/en/sub-agents.md",
+   "title": "",
+   "takeaway": "Subagent frontmatter (name, description, tools, model, maxTurns, skills); separate context window; model aliases haiku/sonnet/opus."
+  },
+  {
+   "id": "cc-settings",
+   "url": "https://code.claude.com/docs/en/settings.md",
+   "title": "",
+   "takeaway": "Settings scopes and precedence (managed > local > project > user); where hooks and permissions live."
+  },
+  {
+   "id": "cc-permissions",
+   "url": "https://code.claude.com/docs/en/permissions.md",
+   "title": "",
+   "takeaway": "Rules evaluate deny -> ask -> allow; first match wins; Bash/Read/Edit pattern syntax."
+  },
+  {
+   "id": "cc-headless",
+   "url": "https://code.claude.com/docs/en/headless.md",
+   "title": "",
+   "takeaway": "claude -p with --output-format json returns result, usage, total_cost_usd, num_turns; --bare skips CLAUDE.md/skills/hooks."
+  },
+  {
+   "id": "agent-skills-spec",
+   "url": "https://agentskills.io/specification",
+   "title": "",
+   "takeaway": "Open Agent Skills format: name (lowercase-hyphen, <=64, matches dir), description <=1024, scripts/references/assets, progressive disclosure."
+  },
+  {
+   "id": "skill-best-practices",
+   "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices.md",
+   "title": "",
+   "takeaway": "Be concise, set degrees of freedom, keep SKILL.md small, one-level-deep references, scripts for deterministic work, evaluation-driven development."
+  },
+  {
+   "id": "eng-building-effective-agents",
+   "url": "https://www.anthropic.com/engineering/building-effective-agents",
+   "title": "Building effective agents",
+   "takeaway": "Prefer simple composable workflows (chains, routing, evaluator-optimizer) before autonomous agents."
+  },
+  {
+   "id": "eng-context-engineering",
+   "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+   "title": "Effective context engineering for AI agents",
+   "takeaway": "Context is a finite attention budget: smallest high-signal token set, just-in-time retrieval, compaction, structured notes, sub-agents."
+  },
+  {
+   "id": "eng-agent-skills",
+   "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+   "title": "Equipping agents with Agent Skills",
+   "note": "Post retitled by publisher (was \"Equipping agents for the real world with Agent Skills\").",
+   "takeaway": "Skills = folders of instructions/scripts/resources loaded progressively; metadata first, body on relevance, files on demand."
+  },
+  {
+   "id": "eng-writing-tools",
+   "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+   "title": "Writing effective tools for agents",
+   "takeaway": "Design tools for agents: few high-leverage tools, meaningful concise outputs, clear errors, evaluate tools with realistic tasks."
+  },
+  {
+   "id": "eng-multi-agent-research",
+   "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+   "title": "How we built our multi-agent research system",
+   "takeaway": "Orchestrator + parallel subagents wins on breadth but costs ~15x tokens; subagents return condensed findings."
+  },
+  {
+   "id": "eng-claude-code-best-practices",
+   "url": "https://www.anthropic.com/engineering/claude-code-best-practices",
+   "title": "Best practices for Claude Code",
+   "note": "Engineering post now redirects to code.claude.com/docs/en/best-practices.",
+   "takeaway": "Give Claude a check to run, manage context aggressively, enforce non-negotiable rules with hooks, use subagents for investigation."
+  },
+  {
+   "id": "agents-md",
+   "url": "https://agents.md",
+   "title": "AGENTS.md",
+   "takeaway": "AGENTS.md: a tool-neutral README for coding agents at repo root."
+  },
+  {
+   "id": "cc-prompt-caching",
+   "url": "https://code.claude.com/docs/en/prompt-caching.md",
+   "title": "",
+   "extra": true,
+   "why": "Justifies keeping CLAUDE.md byte-stable and dynamic status out of it; the mission states this but the cache mechanics live on this page.",
+   "takeaway": "Prompt cache keys on the prefix; editing CLAUDE.md or switching model breaks it; keep stable content first."
+  },
+  {
+   "id": "cc-cli-reference",
+   "url": "https://code.claude.com/docs/en/cli-reference.md",
+   "title": "",
+   "extra": true,
+   "why": "Exact flags for headless cold-start evals (--output-format json, --max-turns, --model, --setting-sources) that the headless page only summarises.",
+   "takeaway": "Flags for headless evals: -p, --output-format json, --max-turns, --model, --setting-sources, --no-session-persistence, --permission-mode."
+  },
+  {
+   "id": "cc-features-overview",
+   "url": "https://code.claude.com/docs/en/features-overview.md",
+   "title": "",
+   "extra": true,
+   "why": "Official statement of what loads always vs on demand (CLAUDE.md, skill descriptions, hooks), the fact Phase 2 is designed around.",
+   "takeaway": "What loads when: CLAUDE.md always, skill descriptions always, skill bodies on use, hooks cost zero context."
+  }
+ ]
+}

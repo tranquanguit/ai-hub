@@ -1,0 +1,11 @@
+# Raw downloads are never committed (Phase 1.2 step 3).
+library/raw/
+# Full texts whose license forbids redistribution are listed in library/full/.gitignore by ingest scripts.
+# Session-scoped state (current role per session, hook once-flags).
+.claude/state/
+.claude/settings.local.json
+# Role-private data never enters git (RULES R15/R17).
+data/*/private/
+__pycache__/
+.pytest_cache/
+*.pyc

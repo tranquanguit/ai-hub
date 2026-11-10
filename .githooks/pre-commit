@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Pre-commit gate (RULES R8, R12, R15, skills format). Enable once per clone:  git config core.hooksPath .githooks
+set -u
+cd "$(git rev-parse --show-toplevel)" || exit 1
+fail=0
+python3 tools/budget.py --quiet            || fail=1
+python3 tools/secret_scan.py --staged      || fail=1
+if ls .claude/skills/*/SKILL.md >/dev/null 2>&1; then python3 tools/validate_skills.py >/dev/null || { python3 tools/validate_skills.py | tail -15; fail=1; }; fi
+# Card structure is strict here; adopted_in targets are checked strictly by tools/acceptance.py.
+python3 tools/library_index.py check --loose >/dev/null || { python3 tools/library_index.py check --loose | tail -10; fail=1; }
+if [ $fail -ne 0 ]; then echo "pre-commit: FAILED (see above)"; exit 1; fi
+echo "pre-commit: PASS"

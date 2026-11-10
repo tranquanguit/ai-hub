@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "autoMemoryEnabled": false,
+  "permissions": {
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git push --mirror *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -f *)",
+      "Bash(git filter-branch *)",
+      "Read(./.env)",
+      "Read(./**/.env)",
+      "Read(./**/*.pem)",
+      "Read(./**/id_rsa*)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(rm *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(gh *)",
+      "WebFetch",
+      "mcp__*"
+    ],
+    "allow": [
+      "Bash(python3 tools/*)",
+      "Bash(python3 .claude/skills/*)",
+      "Bash(python3 evals/*)",
+      "Bash(python3 -m pytest *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(ls *)",
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit(./tasks/**)",
+      "Write(./tasks/**)",
+      "Edit(./memory/inbox/**)",
+      "Write(./memory/inbox/**)",
+      "Write(./memory/episodic/**)",
+      "Write(./.claude/skill-drafts/**)",
+      "Edit(./.claude/skill-drafts/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session_start.py\"", "timeout": 15}]}
+    ],
+    "PreToolUse": [
+      {"matcher": "Bash|Read|Write|Edit|MultiEdit|NotebookEdit|Glob|Grep",
+       "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre_tool_use.py\"", "timeout": 15}]}
+    ],
+    "PreCompact": [
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pre_compact.py\"", "timeout": 15}]}
+    ],
+    "Stop": [
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/stop.py\"", "timeout": 15}]}
+    ],
+    "SessionEnd": [
+      {"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/session_end.py\"", "timeout": 30}]}
+    ]
+  }
+}

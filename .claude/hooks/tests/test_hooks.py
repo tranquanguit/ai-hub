@@ -76,6 +76,14 @@ def test_pretooluse_blocks_direct_semantic_write(proj):
     assert run("pre_tool_use.py", write(str(proj / "memory/inbox/x.md")), proj, role="founder")[1] == ""
 
 
+def test_pretooluse_variable_redirect_near_protected_store_asks(proj):
+    cmd = "R=evals/runs/2026-11-11/x && printf 'x' > $R/INVALID.md"
+    assert decision(run("pre_tool_use.py", bash(cmd), proj, role="founder")[1]) == "ask"
+    assert run("pre_tool_use.py", bash("T=tasks/a && echo ok > $T/notes.md"), proj, role="founder")[1] == ""
+    normal = "python3 .claude/skills/ops-review/scripts/check_review.py r.md --kpis k.json > $T/evidence/check.txt"
+    assert run("pre_tool_use.py", bash(normal), proj, role="founder")[1] == ""
+
+
 def test_pretooluse_cross_role(proj):
     rc, out = run("pre_tool_use.py", {"tool_name": "Read", "tool_input": {"file_path": str(proj / "data/sales/pipeline.csv")}},
                   proj, role="marketing")

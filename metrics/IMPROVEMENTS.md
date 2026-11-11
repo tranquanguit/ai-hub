@@ -28,3 +28,12 @@ Every self-improvement attempt (R6) and every RULES.md change (R14).
 - Eval after: next weekly eval (no golden change attributable yet)
 - Decision: **kept**
 - Evidence: .claude/skills/curate-learning/CHANGELOG.md
+
+## 2026-11-11 — hook: guard shell redirects to $VAR paths near protected stores
+- Metric: R3 enforcement coverage
+- Hypothesis: A redirect whose target is a shell variable cannot be resolved by the hook; asking a human closes the bypass seen on 2026-11-10 (printf > $R/INVALID.md into evals/runs)
+- Change: pre_tool_use.py: VARIABLE_GUARD_STORES -> ask; runner gets --invalidate so INVALID markers are script-written
+- Eval before: bypass possible (observed)
+- Eval after: hook tests 35/35 incl. variable-redirect ask + normal skill redirect allowed
+- Decision: **kept**
+- Evidence: .claude/hooks/tests/test_hooks.py

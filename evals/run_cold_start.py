@@ -197,10 +197,17 @@ def main(argv=None) -> int:
     ap.add_argument("--parallel", type=int, default=3)
     ap.add_argument("--keep", action="store_true")
     ap.add_argument("--baseline", help="results.json to compare against (default: previous valid run)")
+    ap.add_argument("--invalidate", help="run dir to mark INVALID (excluded from comparisons)")
+    ap.add_argument("--reason", default="")
     ap.add_argument("--grade-only")
     ap.add_argument("--compare-only", action="store_true")
     ap.add_argument("--no-questions", action="store_true", help="do not file questions into memory/inbox")
     a = ap.parse_args(argv)
+    if a.invalidate:
+        d = ROOT / a.invalidate
+        (d / "INVALID.md").write_text(f"# INVALID run\n\n{a.reason or 'marked invalid'}\n")
+        print(f"marked {a.invalidate} INVALID")
+        return 0
     if a.grade_only:
         for t in a.task:
             print(json.dumps(load_grader(t).grade(Path(a.grade_only)), indent=1, ensure_ascii=False))

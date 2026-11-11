@@ -54,6 +54,10 @@ PROTECTED_WRITE = [  # R3: only scripts (promote/skill_stats/ledger/hooks) write
     ".claude/skills/*/SKILL.md", ".claude/skills/*/stats.json", ".claude/skills/*/scripts/**",
     "library/MANIFEST.csv", "incidents/INCIDENTS.md", "evals/runs/**", ".claude/state/**",
 ]
+# Stores whose mention next to a `> $VAR/...` redirect triggers an ask (skills' own script paths are excluded
+# because `python3 .claude/skills/x/scripts/y.py > $T/evidence/z.txt` is the normal pattern).
+VARIABLE_GUARD_STORES = ["memory/semantic", "memory/INDEX.md", "memory/archive", "metrics/ledger.jsonl",
+                         "metrics/sessions.jsonl", "evals/runs", "library/MANIFEST.csv", "incidents/", ".claude/state"]
 ASK_WRITE = ["RULES.md", ".claude/settings.json", ".claude/hooks/**", "canon/roles/ROLES.json", ".githooks/**"]
 PRIVATE_OK = ["data/*/private/**"]
 
@@ -135,6 +139,9 @@ def decide(data: dict) -> tuple[str, str, str | None] | None:
             rel = c.rel_path(tgt, cwd)
             if rel and match_any(rel, PROTECTED_WRITE):
                 return "deny", f"Blocked (R3): '{rel}' is written only by repo scripts (tools/promote.py, skill_stats.py, task scripts).", None
+            if "$" in tgt and any(store in cmd for store in VARIABLE_GUARD_STORES):
+                # target hidden behind a shell variable next to a protected store: let a human look
+                return "ask", f"Shell redirect to '{tgt}' (unresolved variable) near a protected store (R3).", None
             if rel and match_any(rel, ASK_WRITE):
                 return "ask", f"Shell edit of '{rel}' changes rules/permissions (R14). Approve only with evidence logged in metrics/IMPROVEMENTS.md.", None
         for p in paths_in_command(cmd):

@@ -19,3 +19,12 @@ Every self-improvement attempt (R6) and every RULES.md change (R14).
 - Eval after: filed under archive/applied with applied_in
 - Decision: **kept**
 - Evidence: memory/curation-log.jsonl
+
+## 2026-11-11 — skill-forge: curate-learning v1.0.1 (headless curation)
+- Metric: questions_asked
+- Hypothesis: Running curate.py in the main session in unattended runs removes the curator-permission question
+- Change: curate-learning step 6 distinguishes interactive vs headless
+- Eval before: evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json: cs-training 1 question
+- Eval after: next weekly eval (no golden change attributable yet)
+- Decision: **kept**
+- Evidence: .claude/skills/curate-learning/CHANGELOG.md

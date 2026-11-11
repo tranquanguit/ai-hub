@@ -23,3 +23,10 @@
 {"ts": "2026-11-11T01:00:51+00:00", "action": "skill-promote", "item": "cs-training", "reason": "version 1.0.0", "eval": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json"}
 {"ts": "2026-11-11T01:00:52+00:00", "action": "skill-promote", "item": "ops-review", "reason": "version 1.0.0", "eval": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json"}
 {"ts": "2026-11-11T01:00:52+00:00", "action": "skill-promote", "item": "phase-plan", "reason": "version 1.0.0", "eval": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json"}
+{"ts": "2026-11-11T01:02:41+00:00", "action": "skill-promote", "item": "curate-learning", "reason": "version 1.0.1", "eval": null}
+{"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-founder-cpa-target.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
+{"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-ops-manufacturing-lead-time.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
+{"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-product-lb-ser-01-retinol.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
+{"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-product-lb-tnt-01-shade-guide.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
+{"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-sales-combo-pricing.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
+{"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-11-eval-question-cs-training-1.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}

@@ -14,5 +14,8 @@ verification:
   kind: human
   evidence: ''
 created: '2026-11-10'
+applied: '2026-11-11'
+applied_in: routed to data/founder/decision-log.md (human answers; answers come back
+  as human-verified facts)
 ---
 What is LunoBeau's real maximum CPA target per channel? The SAMPLE target (90k VND) conflicts with ROAS 2.0

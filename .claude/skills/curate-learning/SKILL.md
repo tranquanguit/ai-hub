@@ -19,7 +19,7 @@ description: ACE curator pass over memory/inbox. Dedupes, checks verification, p
 3. If a candidate reports that an existing fact **misled** a task (with evidence), run `promote.py bump <fact> --harmful --reason "<task>"`.
 4. Run the pass: `python3 .claude/skills/curate-learning/scripts/curate.py --out tasks/<task>/evidence/curation.md`. If no task is open, use `--out metrics/curation-<date>.md`.
 5. Read the report's Decisions table. For deferred `skill-delta` items, run `skill-forge`. For `question` items, answer them in `canon/` (human-owned) or turn them into a fact, then delete the question item.
-6. For a large or contested batch, delegate steps 1–3 to the `curator` subagent.
+6. For a large or contested batch in an **interactive** session, delegate steps 1–3 to the `curator` subagent. In headless or unattended runs (`claude -p`, scheduled tasks), run `curate.py` yourself: subagents there are denied Bash and the pass stalls.
 
 ## Memory facts used
 - All of `memory/semantic/` via `memory/INDEX.md` (the script reads them; you only read the report).

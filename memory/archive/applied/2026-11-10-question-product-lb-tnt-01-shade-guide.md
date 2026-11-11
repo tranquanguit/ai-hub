@@ -15,5 +15,8 @@ verification:
   kind: human
   evidence: ''
 created: '2026-11-10'
+applied: '2026-11-11'
+applied_in: routed to data/founder/decision-log.md (human answers; answers come back
+  as human-verified facts)
 ---
 What is the longevity claim and the shade guide by skin tone for LB-TNT-01 Velvet Lip Tint (6 shades)?

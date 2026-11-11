@@ -10,3 +10,5 @@ Decisions the agents could not make, with the task that raised them. Mark `decid
 | 2026-11-10 | Combo pricing policy (lever for the Q1 revenue gap) | tasks/2026-11-10-q1-2027-phase-plan, cs-training FAQ 6 | open |
 | 2026-11-10 | Manufacturer lead time / MOQ for Tết and 8/3 peaks | phase-plan risks | open |
 | 2026-11-10 | Review 2 open incidents | incidents/INCIDENTS.md | open |
+| 2026-11-10 | Can LB-SER-01 (Niacinamide 5%) be used with retinol? Need manufacturer confirmation for CS | cs-training FAQ 1; cold-start eval question 2026-11-11 | open |
+| 2026-11-10 | LB-TNT-01 longevity claim and shade guide by skin tone | cs-training FAQ 4; cold-start eval question 2026-11-11 | open |

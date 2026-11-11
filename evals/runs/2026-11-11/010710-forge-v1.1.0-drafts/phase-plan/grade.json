@@ -1,0 +1,106 @@
+{
+ "passed": true,
+ "score": 1.0,
+ "checks": [
+  {
+   "name": "task_folder_created",
+   "ok": true,
+   "info": "task-start was used"
+  },
+  {
+   "name": "deliverable_exists",
+   "ok": true,
+   "info": "phase-plan.md"
+  },
+  {
+   "name": "evidence_saved",
+   "ok": true,
+   "info": "6 evidence files"
+  },
+  {
+   "name": "scripted_step_logged",
+   "ok": true,
+   "info": "deterministic step ran as a script"
+  },
+  {
+   "name": "content:section:channels",
+   "ok": true,
+   "info": "kênh bán|sales channel"
+  },
+  {
+   "name": "content:section:regions",
+   "ok": true,
+   "info": "khu vực|region"
+  },
+  {
+   "name": "content:section:audiences",
+   "ok": true,
+   "info": "khách hàng mục tiêu|target audience"
+  },
+  {
+   "name": "content:section:budget",
+   "ok": true,
+   "info": "ngân sách|budget"
+  },
+  {
+   "name": "content:section:channel_strategy",
+   "ok": true,
+   "info": "chiến lược.*kênh|channel strateg"
+  },
+  {
+   "name": "content:section:kpi",
+   "ok": true,
+   "info": "\\bkpi"
+  },
+  {
+   "name": "content:section:timeline",
+   "ok": true,
+   "info": "lịch triển khai|timeline"
+  },
+  {
+   "name": "content:section:risks",
+   "ok": true,
+   "info": "rủi ro|risk"
+  },
+  {
+   "name": "content:section:assumptions",
+   "ok": true,
+   "info": "giả định|assumption"
+  },
+  {
+   "name": "content:section:english_summary",
+   "ok": true,
+   "info": "english summary"
+  },
+  {
+   "name": "content:budget_total_matches_brief",
+   "ok": true,
+   "info": "expected 300,000,000, found [89999000, 98999000, 111002000, 300000000, 935859600, 150000004252000]"
+  },
+  {
+   "name": "content:strategy_per_channel",
+   "ok": true,
+   "info": "missing: []"
+  },
+  {
+   "name": "content:kpi_has_numbers",
+   "ok": true,
+   "info": "KPI section needs numeric targets"
+  },
+  {
+   "name": "content:sample_disclosed",
+   "ok": true,
+   "info": "deliverable built on SAMPLE input must say so"
+  },
+  {
+   "name": "content:no_banned_claims",
+   "ok": true,
+   "info": "found []"
+  },
+  {
+   "name": "content:no_pii",
+   "ok": true,
+   "info": "customer personal data found"
+  }
+ ]
+}

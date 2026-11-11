@@ -50,3 +50,11 @@ def test_roas_check_ignores_day_counts_and_other_columns():
     md = (f"| campaign | CPA | ROAS | note |\n|---|---|---|---|\n| {camp['campaign']} | 171,573 | {camp['roas']} | kéo ROAS |\n"
           f"1. {camp['campaign']}: Marketing kiểm tra lại ROAS sau 7 ngày (mục tiêu ≥ 2.0)\n")
     assert ("quoted_roas_matches_kpis", True) in [(n, ok) for n, ok, _ in cr.checks(md, k)]
+
+
+def test_target_consistency_v110():
+    ck = load("compute_kpis")
+    k = ck.compute(EXPORT)
+    tc = k["target_consistency"]
+    assert tc["consistent"] is False and 190000 < tc["implied_max_cpa_vnd"] < 195000
+    assert "INCONSISTENT" in ck.to_md(k)

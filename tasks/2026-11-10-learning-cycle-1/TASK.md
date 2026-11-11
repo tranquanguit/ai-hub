@@ -2,7 +2,7 @@
 task: 2026-11-10-learning-cycle-1
 task_type: learning-cycle
 role: founder
-status: open
+status: done
 created: 2026-11-10
 rework_count: 1
 skills: ["curate-learning", "eval-run", "reflect", "skill-forge"]

@@ -16,11 +16,12 @@ description: Builds a customer-service training pack (product facts, segments, s
 ## Steps
 1. Run `task-start --type cs-training`.
 2. Generate the deterministic parts: `python3 .claude/skills/cs-training/scripts/build_pack.py <sheet> --out-dir tasks/<task>/evidence/pack`. This writes `product_facts.md`, `quiz.md` and `answer_key.json`. Log it `--scripted`.
-3. Write `tasks/<task>/deliverables/cs-training.md` in Vietnamese with these headings:
+3. Write the reasoned sections (segments, protocol, dialogues, FAQ) to `tasks/<task>/evidence/pack/reasoned_sections.md`, then assemble **by script**: `python3 .claude/skills/cs-training/scripts/assemble_pack.py --pack-dir tasks/<task>/evidence/pack --sections tasks/<task>/evidence/pack/reasoned_sections.md --sheet <sheet> --summary "<English summary>" --out tasks/<task>/deliverables/cs-training.md`. The deliverable has these headings:
    - `## Sản phẩm`: paste `product_facts.md` unchanged. Never add benefits that are not in the sheet.
    - `## Phân khúc khách hàng`: one block per segment in the sheet: needs, typical questions, recommended SKUs, tone.
    - `## Quy trình phục vụ`: greeting, needs check, recommendation, closing, plus the policies with their exact numbers (returns 7 days, SLA 15 minutes, free-ship threshold) and the **skin-reaction escalation** (stop use, rinse, ask for a photo and the order code, report to the Founder the same day).
    - `## Kịch bản mẫu`: at least 4 `### Kịch bản N: <situation>` dialogues, including one complaint and one skin-reaction case. Customers are pseudonyms only.
+   - **Never write a banned phrase, not even as a "don't say" example or in a negation** (the claims check is literal; this caused reworks in 3 of 4 runs). Refer to `canon/company.md#claims` instead, and for acne questions use the phrasing in `memory/semantic/claims.acne.phrasing.md`.
    - `## Câu hỏi thường gặp`: answer every FAQ from the sheet. "Da mụn" questions get a compliant answer (suitable for oily or acne-prone skin as care) with no treatment claim.
    - `## Bài kiểm tra`: paste `quiz.md`, then `### Đáp án` with every answer from `answer_key.json`.
    - `## English summary`.
@@ -28,6 +29,7 @@ description: Builds a customer-service training pack (product facts, segments, s
 4. Check: `python3 .claude/skills/cs-training/scripts/check_training.py tasks/<task>/deliverables/cs-training.md --sheet <sheet> --key tasks/<task>/evidence/pack/answer_key.json > tasks/<task>/evidence/check_training.txt`. Fix any FAIL, log `--rework`, re-run.
 
 ## Memory facts used
+- `memory/semantic/claims.acne.phrasing.md` (compliant wording for acne questions).
 - Facts tagged `cs`, `policy` or `product` in `memory/INDEX.md`. If a fact disagrees with the sheet, follow the sheet and file a `reflect.py candidate`; curation will flag the conflict (R4).
 
 ## Verification

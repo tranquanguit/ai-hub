@@ -47,3 +47,11 @@ def test_checker_pass_and_fail(tmp_path):
     assert {"budget_total_matches_brief", "no_banned_claims"} <= names
     pii = good + "\nGọi chị Lan " + "09" + "12345678"
     assert ("no_pii", False) in [(n, ok) for n, ok, _ in cp.checks(pii, a)]
+
+
+def test_goal_gap_v110():
+    ab = load("allocate_budget")
+    p = ab.params(REPO / "inputs" / "SAMPLE-phase-brief.md")
+    p["goals"] = {"revenue_vnd": 1_200_000_000, "orders": 4000}
+    g = ab.allocate(p)["goal_gap"]
+    assert 225_000 < g["implied_aov_vnd"] < 240_000 and g["revenue_gap_vnd"] < 0 and g["orders_gap"] > 0

@@ -90,6 +90,16 @@ def report() -> str:
         s = summarize(g)
         out.append(f"| {w} | {s['n']} | {fmt(s['median_tokens'])} | {fmt(s['median_turns'])} | {s['questions']} | "
                    f"{fmt(s['first_pass_rate'])} | {fmt(s['scripted_ratio'])} |")
+    evals = sorted(p for p in (ROOT / "evals" / "runs").glob("*/*/results.json") if not (p.parent / "INVALID.md").exists())
+    if evals:
+        out += ["", "## Cold-start evals (fresh headless sessions; the cleanest per-task numbers)", "",
+                "| run | task | pass | tokens | cost $ | turns | rework | questions |", "|---|---|---|---|---|---|---|---|"]
+        for p in evals:
+            for r in json.loads(p.read_text())["results"]:
+                tok = (r.get("tokens_in") or 0) + (r.get("tokens_out") or 0)
+                out.append(f"| {p.parent.name} | {r['task']} | {'PASS' if r['passed'] else 'FAIL'} | {tok:,} | "
+                           f"{round(r['cost_usd'], 3) if r.get('cost_usd') is not None else '–'} | {r.get('turns')} | "
+                           f"{r.get('rework', '–')} | {r.get('questions_asked')} |")
     sys.path.insert(0, str(ROOT / "tools"))
     try:
         import skill_stats

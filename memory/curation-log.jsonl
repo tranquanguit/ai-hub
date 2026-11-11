@@ -30,3 +30,11 @@
 {"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-product-lb-tnt-01-shade-guide.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
 {"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-10-question-sales-combo-pricing.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
 {"ts": "2026-11-11T01:02:48+00:00", "action": "applied", "item": "2026-11-11-eval-question-cs-training-1.md", "reason": "routed to data/founder/decision-log.md (human answers; answers come back as human-verified facts)"}
+{"ts": "2026-11-11T01:14:24+00:00", "action": "skill-promote", "item": "ops-review", "reason": "version 1.1.0", "eval": "evals/runs/2026-11-11/010710-forge-v1.1.0-drafts/results.json"}
+{"ts": "2026-11-11T01:14:25+00:00", "action": "skill-promote", "item": "cs-training", "reason": "version 1.1.0", "eval": "evals/runs/2026-11-11/010710-forge-v1.1.0-drafts/results.json"}
+{"ts": "2026-11-11T01:14:25+00:00", "action": "skill-promote", "item": "phase-plan", "reason": "version 1.1.0", "eval": "evals/runs/2026-11-11/010710-forge-v1.1.0-drafts/results.json"}
+{"ts": "2026-11-11T01:14:25+00:00", "action": "applied", "item": "2026-11-10-skill-ops-review-no-retyping.md", "reason": "ops-review v1.1.0"}
+{"ts": "2026-11-11T01:14:25+00:00", "action": "applied", "item": "2026-11-10-skill-ops-review-target-consistency.md", "reason": "ops-review v1.1.0"}
+{"ts": "2026-11-11T01:14:25+00:00", "action": "applied", "item": "2026-11-10-skill-cs-training-assemble-script.md", "reason": "cs-training v1.1.0"}
+{"ts": "2026-11-11T01:14:25+00:00", "action": "applied", "item": "2026-11-10-skill-phase-plan-implied-aov.md", "reason": "phase-plan v1.1.0"}
+{"ts": "2026-11-11T01:14:54+00:00", "action": "add", "item": "2026-11-11-ops-headless-subagent-bash-denied.md", "reason": "verified, sourced, new key", "fact": "ops.headless.subagent-bash-denied"}

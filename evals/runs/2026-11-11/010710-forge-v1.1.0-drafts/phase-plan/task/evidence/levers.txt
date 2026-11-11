@@ -1,0 +1,10 @@
+gap revenue = 264,140,400; orders 4049; AOV needed at 4049 orders = 296,369 (+65,236 vs implied 231,133)
+weighted segment AOV (brief audiences) = 311,500
+  nu_25_34: order share 44%, revenue share 48.0%
+  nu_18_24: order share 38%, revenue share 32.3%
+  nu_35_44: order share 12%, revenue share 15.0%
+  nam_18_34: order share 6%, revenue share 4.6%
+A combo: 30% of 4049 orders x +120,000 = +145,764,000
+B repeat: 18% x 4049 = 729 orders x 231,133 = 168,454,353; planning value 50% = 84,227,177
+C move 15,000,000 reserve -> shopee_ads (roas 4.2, cpa 52,000): +63,000,000 revenue, +288 orders; shopee total 85,201,000 <= cap 90,000,000
+A+B(50%)+C = 292,991,177 vs gap 264,140,400 -> coverage 111%

@@ -29,7 +29,11 @@ def task_window(task_dir: Path) -> tuple[str, str]:
     times = re.findall(r"^- (\d\d:\d\d:\d\d) ", (task_dir / "LEDGER.md").read_text(), re.M)
     if not times:
         raise SystemExit(f"no timed ledger steps in {task_dir}")
-    return f"{day}T{times[0]}", f"{day}T{times[-1]}"
+    from datetime import date as _d, timedelta
+    end_day = day
+    if times[-1] < times[0]:  # ledger crossed midnight (UTC)
+        end_day = (_d.fromisoformat(day) + timedelta(days=1)).isoformat()
+    return f"{day}T{times[0]}", f"{end_day}T{times[-1]}"
 
 
 def parse_transcript(path: Path, since: str | None = None, until: str | None = None) -> dict:
@@ -94,7 +98,8 @@ def backfill_ledger(task: str, stats: dict) -> bool:
     for r in rows:
         if r.get("task") == task and not r.get("tokens_in"):
             r.update({"tokens_in": stats["tokens_in"], "tokens_out": stats["tokens_out"],
-                      "tool_calls": stats["tool_calls"], "token_source": "session_transcript"})
+                      "tool_calls": stats["tool_calls"], "turns": r.get("turns") or stats.get("api_calls"),
+                      "token_source": "session_transcript"})
             changed = True
     if changed:
         LEDGER.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows))

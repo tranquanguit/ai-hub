@@ -1,0 +1,60 @@
+{
+ "run": "evals/runs/2026-11-11/010710-forge-v1.1.0-drafts",
+ "date": "2026-11-11T01:07:10+00:00",
+ "commit": "7973c99",
+ "model": "sonnet",
+ "label": "forge-v1.1.0-drafts",
+ "results": [
+  {
+   "task": "cs-training",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "cs-training",
+   "tokens_in": 687680,
+   "tokens_out": 7524,
+   "cost_usd": 0.5908213999999999,
+   "turns": 15,
+   "duration_s": 144.5,
+   "rework": 1,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": []
+  },
+  {
+   "task": "ops-review",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "ops-review",
+   "tokens_in": 1245027,
+   "tokens_out": 13053,
+   "cost_usd": 0.3963467,
+   "turns": 29,
+   "duration_s": 94.1,
+   "rework": 0,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": []
+  },
+  {
+   "task": "phase-plan",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "phase-plan",
+   "tokens_in": 1530196,
+   "tokens_out": 21987,
+   "cost_usd": 0.5662042,
+   "turns": 35,
+   "duration_s": 170.5,
+   "rework": 0,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": []
+  }
+ ]
+}

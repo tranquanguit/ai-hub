@@ -1,0 +1,28 @@
+PASS  AT1 library manifest + cards
+      43 sources listed with sha256 (23 papers); missing=[]; card problems=[]
+PASS  AT2 DESIGN citations
+      20 decisions; without citation/justification: []
+PASS  AT3 rules enforced + hook tests
+      18 rules, all name enforcement: True; hooks with tests: 5/5; blocking assertions: 15; hook tests pass: True
+PASS  AT4 skills valid + runs
+      9 meta + 3 domain skills; runs={'task-start': 4, 'task-close': 4, 'reflect': 4, 'curate-learning': 3, 'skill-forge': 3, 'paper-ingest': 2, 'eval-run': 3, 'prune': 2, 'improve': 2, 'phase-plan': 1, 'cs-training': 1, 'ops-review': 1}; problems=[]
+PASS  AT5 domain skills run on inputs
+      {'phase-plan': ['2026-11-10-q1-2027-phase-plan (4 evidence files)'], 'cs-training': ['2026-11-10-cs-training-pack (5 evidence files)'], 'ops-review': ['2026-11-10-ops-review-w45 (6 evidence files)']}
+PASS  AT6 learning cycle
+      episodic notes=4; promoted=7; set aside/rejected with reason=3 (e.g. 2026-11-10-benchmark-tiktok-ads-roas.md: same key 'benchmark.tiktok_ads.roas' but value '1.2' != exis); facts=7; unindexed=[]
+PASS  AT7 skill-forge from trajectory
+      skills updated from a trajectory with eval evidence: ['phase-plan v1.1.0', 'curate-learning v1.0.1', 'ops-review v1.1.0', 'cs-training v1.1.0']
+PASS  AT8 budget
+      always-loaded total 2476 tokens (budget 6000)
+PASS  AT9 cold-start evals
+      evals/runs/2026-11-11/010710-forge-v1.1.0-drafts: cs-training: PASS tok=695,204 turns=15 q=0; ops-review: PASS tok=1,258,080 turns=29 q=0; phase-plan: PASS tok=1,552,183 turns=35 q=0
+PASS  AT10 ledger + metrics
+      ledger lines=4; closed tasks=4; missing=[]; metrics.py exit=0
+PASS  AT11 no placeholder dirs
+      placeholder/empty dirs: []
+PASS  AT12 all tests pass
+      102 passed, 1 warning in 2.56s
+PASS  ATR14 rule changes logged
+      RULES.md unchanged since the initial version (R14 exception)
+
+13/13 passed

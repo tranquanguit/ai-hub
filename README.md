@@ -71,4 +71,4 @@ git config core.hooksPath .githooks
 ## Blocked or pending (needs the founder)
 - Real inputs for the three frequent tasks (currently SAMPLE).
 - Answers to the open questions in `memory/inbox/` (`type: question`), and the open conflict in `memory/conflicts/`.
-- Review of `incidents/INCIDENTS.md` (one build-time incident is open).
+- Review of `incidents/INCIDENTS.md`: two build-time incidents are open (a blocked test fixture that looked like an AWS key, and a false positive on the agent's own plan file, since fixed).

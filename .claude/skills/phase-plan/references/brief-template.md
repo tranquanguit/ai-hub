@@ -7,6 +7,7 @@ Copy into `inputs/<phase>-brief.md` and fill in. Benchmarks should come from the
 phase: Q?-YYYY
 months: ["YYYY-MM", "YYYY-MM", "YYYY-MM"]
 month_weights: [0.30, 0.33, 0.37]   # must sum to 1
+goals: {revenue_vnd: 0, orders: 0}
 total_budget_vnd: 0
 reserve_pct: 0.10
 channels:

@@ -1,0 +1,14 @@
+PASS  section:summary
+PASS  section:ads
+PASS  section:seo
+PASS  section:cs
+PASS  section:recommendations
+PASS  section:english_summary
+PASS  every_flag_has_recommendation
+PASS  recommendations_have_owner_and_metric
+PASS  quoted_roas_matches_kpis
+PASS  skin_reaction_escalated
+PASS  sample_disclosed
+PASS  no_banned_claims
+PASS  no_pii
+score 13/13  =>  PASS

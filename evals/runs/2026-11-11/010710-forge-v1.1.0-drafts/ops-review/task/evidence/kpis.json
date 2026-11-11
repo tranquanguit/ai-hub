@@ -1,0 +1,333 @@
+{
+ "period": "2026-11-03..2026-11-09",
+ "targets": {
+  "_note": "SAMPLE targets for ops-review (founder to confirm)",
+  "roas_min": 2.0,
+  "cpa_max_vnd": 90000,
+  "ctr_min": 0.008,
+  "cs_first_response_max_min": 15,
+  "csat_min": 4.5,
+  "resolution_rate_min": 0.9,
+  "period": "2026-11-03..2026-11-09"
+ },
+ "missing": [],
+ "ads": {
+  "campaigns": [
+   {
+    "campaign": "TT_Broad_LipTint",
+    "platform": "tiktok",
+    "spend_vnd": 6440000,
+    "impressions": 169470,
+    "clicks": 1023,
+    "conversions": 8,
+    "revenue_vnd": 1479000,
+    "ctr": 0.006,
+    "cpc_vnd": 6295,
+    "cpa_vnd": 805000,
+    "roas": 0.23,
+    "flags": [
+     "ROAS 0.23 < 2.0",
+     "CPA 805000 > 90000",
+     "CTR 0.60% < 0.8%"
+    ]
+   },
+   {
+    "campaign": "GG_Search_Generic_Serum",
+    "platform": "google",
+    "spend_vnd": 5475000,
+    "impressions": 33283,
+    "clicks": 699,
+    "conversions": 7,
+    "revenue_vnd": 3167000,
+    "ctr": 0.021,
+    "cpc_vnd": 7832,
+    "cpa_vnd": 782142,
+    "roas": 0.58,
+    "flags": [
+     "ROAS 0.58 < 2.0",
+     "CPA 782142 > 90000"
+    ]
+   },
+   {
+    "campaign": "FB_Prospecting_Serum",
+    "platform": "facebook",
+    "spend_vnd": 10308000,
+    "impressions": 198227,
+    "clicks": 2111,
+    "conversions": 41,
+    "revenue_vnd": 17339000,
+    "ctr": 0.0106,
+    "cpc_vnd": 4882,
+    "cpa_vnd": 251414,
+    "roas": 1.68,
+    "flags": [
+     "ROAS 1.68 < 2.0",
+     "CPA 251414 > 90000"
+    ]
+   },
+   {
+    "campaign": "TT_Spark_KOC_Sunscreen",
+    "platform": "tiktok",
+    "spend_vnd": 10466000,
+    "impressions": 275417,
+    "clicks": 3845,
+    "conversions": 61,
+    "revenue_vnd": 18799000,
+    "ctr": 0.014,
+    "cpc_vnd": 2721,
+    "cpa_vnd": 171573,
+    "roas": 1.8,
+    "flags": [
+     "ROAS 1.8 < 2.0",
+     "CPA 171573 > 90000"
+    ]
+   },
+   {
+    "campaign": "FB_Retargeting_Combo",
+    "platform": "facebook",
+    "spend_vnd": 5011000,
+    "impressions": 96361,
+    "clicks": 1774,
+    "conversions": 75,
+    "revenue_vnd": 42076000,
+    "ctr": 0.0184,
+    "cpc_vnd": 2824,
+    "cpa_vnd": 66813,
+    "roas": 8.4,
+    "flags": []
+   },
+   {
+    "campaign": "GG_Search_Brand",
+    "platform": "google",
+    "spend_vnd": 2037000,
+    "impressions": 9563,
+    "clicks": 813,
+    "conversions": 70,
+    "revenue_vnd": 28058000,
+    "ctr": 0.085,
+    "cpc_vnd": 2505,
+    "cpa_vnd": 29100,
+    "roas": 13.77,
+    "flags": []
+   },
+   {
+    "campaign": "SP_Search_Ads",
+    "platform": "shopee",
+    "spend_vnd": 4213000,
+    "impressions": 140431,
+    "clicks": 4744,
+    "conversions": 187,
+    "revenue_vnd": 61969000,
+    "ctr": 0.0338,
+    "cpc_vnd": 888,
+    "cpa_vnd": 22529,
+    "roas": 14.71,
+    "flags": []
+   }
+  ],
+  "platforms": [
+   {
+    "platform": "tiktok",
+    "spend_vnd": 16906000,
+    "conversions": 69,
+    "revenue_vnd": 20278000,
+    "roas": 1.2,
+    "cpa_vnd": 245014
+   },
+   {
+    "platform": "facebook",
+    "spend_vnd": 15319000,
+    "conversions": 116,
+    "revenue_vnd": 59415000,
+    "roas": 3.88,
+    "cpa_vnd": 132060
+   },
+   {
+    "platform": "google",
+    "spend_vnd": 7512000,
+    "conversions": 77,
+    "revenue_vnd": 31225000,
+    "roas": 4.16,
+    "cpa_vnd": 97558
+   },
+   {
+    "platform": "shopee",
+    "spend_vnd": 4213000,
+    "conversions": 187,
+    "revenue_vnd": 61969000,
+    "roas": 14.71,
+    "cpa_vnd": 22529
+   }
+  ],
+  "total": {
+   "spend_vnd": 43950000,
+   "revenue_vnd": 172887000,
+   "conversions": 449,
+   "roas": 3.93,
+   "cpa_vnd": 97884
+  },
+  "flagged": [
+   "TT_Broad_LipTint",
+   "GG_Search_Generic_Serum",
+   "FB_Prospecting_Serum",
+   "TT_Spark_KOC_Sunscreen"
+  ]
+ },
+ "seo": {
+  "keywords": [
+   {
+    "keyword": "kem chống nắng nâng tone",
+    "prev": 27,
+    "now": 41,
+    "change": -14,
+    "clicks": 2,
+    "impressions": 377,
+    "landing_page": "/kem"
+   },
+   {
+    "keyword": "son tint lâu trôi",
+    "prev": 22,
+    "now": 31,
+    "change": -9,
+    "clicks": 13,
+    "impressions": 1346,
+    "landing_page": "/son"
+   },
+   {
+    "keyword": "sữa rửa mặt amino",
+    "prev": 11,
+    "now": 12,
+    "change": -1,
+    "clicks": 48,
+    "impressions": 1946,
+    "landing_page": "/sữa"
+   },
+   {
+    "keyword": "lunobeau",
+    "prev": 1,
+    "now": 1,
+    "change": 0,
+    "clicks": 932,
+    "impressions": 3107,
+    "landing_page": "/lunobeau"
+   },
+   {
+    "keyword": "kem chống nắng da dầu",
+    "prev": 8,
+    "now": 7,
+    "change": 1,
+    "clicks": 77,
+    "impressions": 1810,
+    "landing_page": "/kem"
+   },
+   {
+    "keyword": "serum niacinamide",
+    "prev": 14,
+    "now": 9,
+    "change": 5,
+    "clicks": 19,
+    "impressions": 584,
+    "landing_page": "/serum"
+   },
+   {
+    "keyword": "serum cấp ẩm cho da khô",
+    "prev": 19,
+    "now": 13,
+    "change": 6,
+    "clicks": 49,
+    "impressions": 2141,
+    "landing_page": "/serum"
+   }
+  ],
+  "top10": 3,
+  "drops": [
+   "son tint lâu trôi",
+   "kem chống nắng nâng tone"
+  ],
+  "gains": [
+   "serum niacinamide",
+   "serum cấp ẩm cho da khô"
+  ],
+  "avg_position_now": 16.3
+ },
+ "cs": {
+  "channels": [
+   {
+    "channel": "tiktok_shop_chat",
+    "tickets": 206,
+    "resolution_rate": 0.8835,
+    "median_first_response_min": 9.1,
+    "max_first_response_min": 31.8,
+    "csat": 4.41,
+    "skin_reaction_reports": 0,
+    "flags": [
+     "first response > 15 min on 2026-11-07, 2026-11-08",
+     "CSAT 4.41 < 4.5",
+     "resolution 88.3% < 90%"
+    ]
+   },
+   {
+    "channel": "shopee_chat",
+    "tickets": 158,
+    "resolution_rate": 0.8797,
+    "median_first_response_min": 7.8,
+    "max_first_response_min": 11.2,
+    "csat": 4.41,
+    "skin_reaction_reports": 1,
+    "flags": [
+     "CSAT 4.41 < 4.5",
+     "resolution 88.0% < 90%"
+    ]
+   },
+   {
+    "channel": "facebook_inbox",
+    "tickets": 176,
+    "resolution_rate": 0.8977,
+    "median_first_response_min": 8.9,
+    "max_first_response_min": 11.7,
+    "csat": 4.58,
+    "skin_reaction_reports": 0,
+    "flags": [
+     "resolution 89.8% < 90%"
+    ]
+   },
+   {
+    "channel": "hotline",
+    "tickets": 128,
+    "resolution_rate": 0.8672,
+    "median_first_response_min": 10.7,
+    "max_first_response_min": 12.4,
+    "csat": 4.51,
+    "skin_reaction_reports": 0,
+    "flags": [
+     "resolution 86.7% < 90%"
+    ]
+   }
+  ],
+  "sla_breaches": [
+   {
+    "channel": "tiktok_shop_chat",
+    "date": "2026-11-07"
+   },
+   {
+    "channel": "tiktok_shop_chat",
+    "date": "2026-11-08"
+   }
+  ],
+  "skin_reaction_reports": 1,
+  "flagged": [
+   "facebook_inbox",
+   "shopee_chat",
+   "tiktok_shop_chat",
+   "hotline"
+  ]
+ },
+ "target_consistency": {
+  "aov_vnd": 385048,
+  "roas_min": 2.0,
+  "implied_max_cpa_vnd": 192524,
+  "cpa_max_vnd": 90000,
+  "consistent": false,
+  "note": "cpa_max 90,000 < AOV/roas_min 192,524: CPA flags fire on campaigns that meet ROAS; ask the Founder to reset the CPA target"
+ }
+}

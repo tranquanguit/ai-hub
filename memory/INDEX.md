@@ -2,9 +2,10 @@
 
 One line per verified fact: `slug` — claim [tags] (score, confidence). Open a fact file only when needed.
 
-- `ads.benchmarks.implied-aov` — A channel benchmark pair implies AOV = CPA × ROAS; if the implied AOV is below segment AOVs, the revenue forecast will be short and the plan must name an AOV lever [ads,benchmark,phase-plan,target] (2.0, high)
-- `ads.targets.cpa-roas-consistency` — Ad targets are consistent only if cpa_max >= AOV / roas_min; otherwise CPA flags fire on campaigns that meet the ROAS target [ads,target,ops-review] (2.0, high)
-- `claims.acne.phrasing` — For acne questions, say the product is 'không phải sản phẩm chuyên dùng cho da mụn'; any phrase containing 'trị mụn' (even negated) fails the claims check [claims,cs,cs-training] (2.0, high)
-- `product.lb-sun-01.claim.tone-up` — LB-SUN-01 Daily Light Sunscreen is not described as tone-up (nâng tone) in canon; do not target or claim 'nâng tone' [product,claims,seo] (2.0, high)
-- `benchmark.tiktok-ads.roas` — [SAMPLE brief] TikTok ads ROAS benchmark from last quarter is 3.6 [benchmark,ads,tiktok,sample,phase-plan] (1.4, low)
-- `policy.free-shipping.threshold-vnd` — [SAMPLE sheet] Orders from 399,000 VND ship free [policy,cs,sample] (1.4, low)
+- `ops.headless.subagent-bash-denied` — In headless claude -p runs with an allowedTools list, delegated subagents are denied Bash; run script steps (e.g. curate.py) in the main session when unattended [ops,headless,eval,curate-learning] (2.0, high)
+- `ads.benchmarks.implied-aov` — A channel benchmark pair implies AOV = CPA × ROAS; if the implied AOV is below segment AOVs, the revenue forecast will be short and the plan must name an AOV lever [ads,benchmark,phase-plan,target] (1.99, high)
+- `ads.targets.cpa-roas-consistency` — Ad targets are consistent only if cpa_max >= AOV / roas_min; otherwise CPA flags fire on campaigns that meet the ROAS target [ads,target,ops-review] (1.99, high)
+- `claims.acne.phrasing` — For acne questions, say the product is 'không phải sản phẩm chuyên dùng cho da mụn'; any phrase containing 'trị mụn' (even negated) fails the claims check [claims,cs,cs-training] (1.99, high)
+- `product.lb-sun-01.claim.tone-up` — LB-SUN-01 Daily Light Sunscreen is not described as tone-up (nâng tone) in canon; do not target or claim 'nâng tone' [product,claims,seo] (1.99, high)
+- `benchmark.tiktok-ads.roas` — [SAMPLE brief] TikTok ads ROAS benchmark from last quarter is 3.6 [benchmark,ads,tiktok,sample,phase-plan] (1.39, low)
+- `policy.free-shipping.threshold-vnd` — [SAMPLE sheet] Orders from 399,000 VND ship free [policy,cs,sample] (1.39, low)

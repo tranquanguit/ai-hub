@@ -1,0 +1,62 @@
+{
+ "run": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0",
+ "date": "2026-11-11T00:52:46+00:00",
+ "commit": "2b4b7a5",
+ "model": "sonnet",
+ "label": "baseline-drafts-v1.0.0",
+ "results": [
+  {
+   "task": "cs-training",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "cs-training",
+   "tokens_in": 70855,
+   "tokens_out": 742,
+   "cost_usd": 0.5001359,
+   "turns": 1,
+   "duration_s": 138.4,
+   "questions": [
+    "gaps -> retinol, lip-tint longevity/shades, combo discount, sunscreen texture not in sheet; escalate to Founder -> open questions"
+   ],
+   "questions_asked": 1,
+   "is_error": false,
+   "failed_checks": [],
+   "rework": 1
+  },
+  {
+   "task": "ops-review",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "ops-review",
+   "tokens_in": 1316961,
+   "tokens_out": 21773,
+   "cost_usd": 0.5568337,
+   "turns": 30,
+   "duration_s": 178.2,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": [],
+   "rework": 1
+  },
+  {
+   "task": "phase-plan",
+   "passed": true,
+   "score": 1.0,
+   "model": "sonnet",
+   "draft": "phase-plan",
+   "tokens_in": 1537834,
+   "tokens_out": 19187,
+   "cost_usd": 0.5252125,
+   "turns": 40,
+   "duration_s": 140.3,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": false,
+   "failed_checks": [],
+   "rework": 0
+  }
+ ]
+}

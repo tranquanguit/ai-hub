@@ -1,0 +1,14 @@
+{
+  "runs": 1,
+  "passes": 1,
+  "failures": 0,
+  "last_failure": null,
+  "version": "1.0.0",
+  "last_run": "2026-11-10T19:12:44+00:00",
+  "scripted_steps": 2,
+  "reasoned_steps": 2,
+  "step_counts": {
+    "write strategy": 1,
+    "compute implied aov": 1
+  }
+}

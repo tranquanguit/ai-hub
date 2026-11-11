@@ -111,6 +111,21 @@ def cs_kpis(rows: list[dict], t: dict) -> dict:
             "flagged": [c["channel"] for c in chans if c["flags"]]}
 
 
+def target_consistency(k: dict) -> dict | None:
+    """v1.1.0: max CPA consistent with the ROAS target is AOV / roas_min (memory: ads.targets.cpa-roas-consistency).
+    Scripted because w45 found the inconsistency only by reasoning."""
+    t, a = k.get("targets", {}), k.get("ads", {}).get("total")
+    if not a or not a.get("conversions") or not t.get("roas_min") or not t.get("cpa_max_vnd"):
+        return None
+    aov = a["revenue_vnd"] / a["conversions"]
+    implied = aov / t["roas_min"]
+    ok = t["cpa_max_vnd"] >= 0.9 * implied
+    return {"aov_vnd": int(aov), "roas_min": t["roas_min"], "implied_max_cpa_vnd": int(implied),
+            "cpa_max_vnd": t["cpa_max_vnd"], "consistent": ok,
+            "note": "ok" if ok else (f"cpa_max {t['cpa_max_vnd']:,} < AOV/roas_min {int(implied):,}: CPA flags fire on "
+                                     "campaigns that meet ROAS; ask the Founder to reset the CPA target")}
+
+
 def vnd(n):
     return f"{n:,}" if isinstance(n, int) else "–"
 
@@ -136,6 +151,11 @@ def to_md(k: dict) -> str:
         out += [f"| {c['channel']} | {c['tickets']} | {c['resolution_rate']:.1%} | {c['median_first_response_min']} | "
                 f"{c['max_first_response_min']} | {c['csat']} | {c['skin_reaction_reports']} | {'; '.join(c['flags']) or 'ok'} |"
                 for c in k["cs"]["channels"]]
+    tc = k.get("target_consistency")
+    if tc:
+        out += ["", "### Target consistency", "",
+                f"AOV {tc['aov_vnd']:,} VND / ROAS min {tc['roas_min']} = max CPA {tc['implied_max_cpa_vnd']:,} VND vs "
+                f"target {tc['cpa_max_vnd']:,} VND -> {'consistent' if tc['consistent'] else 'INCONSISTENT: ' + tc['note']}"]
     return "\n".join(out) + "\n"
 
 
@@ -148,6 +168,7 @@ def compute(d: Path) -> dict:
             k[name] = fn(rd(p))
         else:
             k["missing"].append(f"{name}.csv")
+    k["target_consistency"] = target_consistency(k)
     return k
 
 
@@ -163,7 +184,8 @@ def main(argv=None) -> int:
         Path(a.out_md).write_text(md)
     print(md)
     print(f"flagged campaigns: {k.get('ads', {}).get('flagged')}; SEO drops: {k.get('seo', {}).get('drops')}; "
-          f"CS flagged: {k.get('cs', {}).get('flagged')}; missing: {k['missing']}")
+          f"CS flagged: {k.get('cs', {}).get('flagged')}; missing: {k['missing']}; "
+          f"targets consistent: {(k.get('target_consistency') or {}).get('consistent')}")
     return 0
 
 

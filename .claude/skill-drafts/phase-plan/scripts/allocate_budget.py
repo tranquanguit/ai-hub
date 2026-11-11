@@ -59,10 +59,18 @@ def allocate(p: dict) -> dict:
         per_month[-1] += a - sum(per_month)
         rows.append({"channel": k, "share": round(a / total, 4), "amount_vnd": a, "per_month_vnd": per_month,
                      "expected_orders": int(a / c["cpa"]), "expected_revenue_vnd": int(a * c["roas"]),
-                     "cpa_benchmark": c["cpa"], "roas_benchmark": c["roas"]})
+                     "cpa_benchmark": c["cpa"], "roas_benchmark": c["roas"],
+                     "implied_aov_vnd": int(c["cpa"] * c["roas"])})
     res_month = [int(reserve * w / 1000) * 1000 for w in mw]
     res_month[-1] += reserve - sum(res_month)
-    return {"phase": p.get("phase"), "total_budget_vnd": total, "reserve_vnd": reserve, "reserve_per_month_vnd": res_month,
+    exp_orders = sum(r["expected_orders"] for r in rows)
+    exp_rev = sum(r["expected_revenue_vnd"] for r in rows)
+    goals = p.get("goals") or {}
+    gap = {"implied_aov_vnd": int(exp_rev / exp_orders) if exp_orders else None,
+           "revenue_goal_vnd": goals.get("revenue_vnd"), "orders_goal": goals.get("orders"),
+           "revenue_gap_vnd": (exp_rev - goals["revenue_vnd"]) if goals.get("revenue_vnd") else None,
+           "orders_gap": (exp_orders - goals["orders"]) if goals.get("orders") else None}
+    return {"phase": p.get("phase"), "goal_gap": gap, "total_budget_vnd": total, "reserve_vnd": reserve, "reserve_per_month_vnd": res_month,
             "months": months, "rows": rows,
             "expected_orders": sum(r["expected_orders"] for r in rows),
             "expected_revenue_vnd": sum(r["expected_revenue_vnd"] for r in rows)}
@@ -99,6 +107,10 @@ def main(argv=None) -> int:
     print(md)
     print(f"expected orders {alloc['expected_orders']:,}; expected revenue {vnd(alloc['expected_revenue_vnd'])} VND "
           "(benchmarks from the brief; label as assumption)")
+    g = alloc["goal_gap"]
+    print(f"implied AOV (CPA x ROAS) {g['implied_aov_vnd']:,} VND; revenue gap vs goal "
+          f"{g['revenue_gap_vnd'] if g['revenue_gap_vnd'] is not None else 'n/a (add goals: to the params block)'}; "
+          f"orders gap {g['orders_gap'] if g['orders_gap'] is not None else 'n/a'}")
     return 0
 
 

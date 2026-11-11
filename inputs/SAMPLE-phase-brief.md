@@ -20,6 +20,7 @@ Lập kế hoạch giai đoạn: kênh bán hàng, khu vực trọng điểm, kh
 phase: Q1-2027
 months: ["2027-01", "2027-02", "2027-03"]
 month_weights: [0.30, 0.33, 0.37]     # ramp-up
+goals: {revenue_vnd: 1200000000, orders: 4000, repeat_rate: 0.18}
 total_budget_vnd: 300000000
 reserve_pct: 0.10                     # quỹ dự phòng / test
 channels:

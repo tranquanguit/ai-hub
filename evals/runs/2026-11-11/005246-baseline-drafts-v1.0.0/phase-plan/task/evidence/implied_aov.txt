@@ -1,0 +1,12 @@
+shopee implied AOV 218400
+tiktok implied AOV 234000
+facebook implied AOV 241800
+koc implied AOV 231000
+google implied AOV 247000
+blended implied AOV 231133.51444801185
+segment weighted AOV 311500.0
+AOV needed for 1.2B on 4049 orders 296369.47394418373
+gap 264140400.0 0.220117
+shift reserve->shopee to max 30%: spend + 19799000.0 rev + 83155800.0
+AOV +10% -> rev + 93585960.0
+orders needed at current AOV 5191.804411687394

@@ -20,3 +20,6 @@
 {"ts": "2026-11-10T19:12:45+00:00", "action": "reject", "item": "2026-11-10-skill-task-close-draft-stats.md", "reason": "applied in task-close v1.1.0 and task-start v1.1.0 (skill-forge)"}
 {"ts": "2026-11-10T19:13:12+00:00", "action": "applied", "item": "2026-11-10-skill-task-close-draft-stats.md", "reason": "re-filed from rejected/ (was consumed, not rejected)"}
 {"ts": "2026-11-10T19:13:13+00:00", "action": "skill-promote", "item": "skill-forge", "reason": "version 1.0.1", "eval": null}
+{"ts": "2026-11-11T01:00:51+00:00", "action": "skill-promote", "item": "cs-training", "reason": "version 1.0.0", "eval": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json"}
+{"ts": "2026-11-11T01:00:52+00:00", "action": "skill-promote", "item": "ops-review", "reason": "version 1.0.0", "eval": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json"}
+{"ts": "2026-11-11T01:00:52+00:00", "action": "skill-promote", "item": "phase-plan", "reason": "version 1.0.0", "eval": "evals/runs/2026-11-11/005246-baseline-drafts-v1.0.0/results.json"}

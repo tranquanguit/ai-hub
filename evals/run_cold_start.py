@@ -113,6 +113,7 @@ def run_task(task: str, model: str, draft: str | None, outdir: Path, keep: bool 
     grade = load_grader(task).grade(ws)
     u = out.get("usage") or {}
     qs = count_questions(out, ws, spec["task_type"])
+    rework = sum(t.read_text().count("[rework]") for t in (ws / "tasks").glob("*/LEDGER.md"))
     tdir = outdir / task
     tdir.mkdir(parents=True, exist_ok=True)
     (tdir / "claude_output.json").write_text(json.dumps({k: v for k, v in out.items() if k != "modelUsage"}, indent=1,
@@ -124,7 +125,7 @@ def run_task(task: str, model: str, draft: str | None, outdir: Path, keep: bool 
     res = {"task": task, "passed": grade["passed"], "score": grade["score"], "model": model, "draft": draft,
            "tokens_in": (u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0) + u.get("cache_read_input_tokens", 0)) or None,
            "tokens_out": u.get("output_tokens"), "cost_usd": out.get("total_cost_usd"), "turns": out.get("num_turns"),
-           "duration_s": dur, "questions": qs, "questions_asked": len(qs), "is_error": out.get("is_error"),
+           "duration_s": dur, "rework": rework, "questions": qs, "questions_asked": len(qs), "is_error": out.get("is_error"),
            "failed_checks": [c["name"] for c in grade["checks"] if not c["ok"]]}
     if not keep:
         drop_workspace(ws)
@@ -173,12 +174,12 @@ def file_questions(results: list[dict], run_rel: str) -> int:
 
 def write_summary(res: dict, cmp_lines: list[str], outdir: Path) -> str:
     lines = [f"# Cold-start eval {res['run']}", "", f"commit {res['commit']} | model {res['model']}", "",
-             "| task | passed | score | tokens in | tokens out | cost $ | turns | questions | failed checks |",
-             "|---|---|---|---|---|---|---|---|---|"]
+             "| task | passed | score | tokens in | tokens out | cost $ | turns | rework | questions | failed checks |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
     for r in res["results"]:
         lines.append(f"| {r['task']}{' (draft)' if r['draft'] else ''} | {'PASS' if r['passed'] else 'FAIL'} | {r['score']} | "
                      f"{r['tokens_in'] or '–'} | {r['tokens_out'] or '–'} | {r['cost_usd'] if r['cost_usd'] is not None else '–'} | "
-                     f"{r['turns'] or '–'} | {r['questions_asked']} | {', '.join(r['failed_checks']) or '–'} |")
+                     f"{r['turns'] or '–'} | {r.get('rework', '–')} | {r['questions_asked']} | {', '.join(r['failed_checks']) or '–'} |")
     lines += ["", "## Comparison", ""] + [f"- {l}" for l in cmp_lines]
     text = "\n".join(lines) + "\n"
     (outdir / "summary.md").write_text(text)

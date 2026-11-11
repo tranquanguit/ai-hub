@@ -41,3 +41,14 @@ def test_checker_pass_and_fail():
     bad = md.replace("450,000", "400,000").replace("Chào khách.", "Serum trị mụn hiệu quả.")
     failed = {n for n, ok, _ in ct.checks(bad, SHEET, key) if not ok}
     assert {"all_skus_with_price", "no_banned_claims"} <= failed
+
+
+def test_assemble_pack_v110(tmp_path):
+    bp, ap, ct = load("build_pack"), load("assemble_pack"), load("check_training")
+    facts, quiz, key = bp.build(SHEET)
+    (tmp_path / "product_facts.md").write_text(facts); (tmp_path / "quiz.md").write_text(quiz)
+    (tmp_path / "answer_key.json").write_text(__import__("json").dumps(key, ensure_ascii=False))
+    md, _ = good_pack(bp)
+    sections = md.split("## Phân khúc khách hàng", 1)[1].split("## Bài kiểm tra", 1)[0]
+    out = ap.assemble(tmp_path, "## Phân khúc khách hàng" + sections, SHEET, "x")
+    assert all(ok for _, ok, _ in ct.checks(out, SHEET, key)), [c for c in ct.checks(out, SHEET, key) if not c[1]]

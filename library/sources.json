@@ -87,6 +87,12 @@
   {
    "id": "2310.03714",
    "title": "DSPy"
+  },
+  {
+   "id": "2504.19413",
+   "title": "Mem0",
+   "extra": true,
+   "why": "Production evidence for explicit memory-update operations (ADD/UPDATE/DELETE/NOOP), the gap behind our curator verdicts (add/merge/conflict/reject)."
   }
  ],
  "docs": [

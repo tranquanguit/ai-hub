@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,7 +22,17 @@ SESSIONS = ROOT / "metrics" / "sessions.jsonl"
 LEDGER = ROOT / "metrics" / "ledger.jsonl"
 
 
-def parse_transcript(path: Path) -> dict:
+def task_window(task_dir: Path) -> tuple[str, str]:
+    """(start, end) ISO timestamps from TASK.md `created` date and the first/last LEDGER.md step times (UTC)."""
+    t = (task_dir / "TASK.md").read_text()
+    day = re.search(r"^created:\s*(\S+)", t, re.M).group(1)
+    times = re.findall(r"^- (\d\d:\d\d:\d\d) ", (task_dir / "LEDGER.md").read_text(), re.M)
+    if not times:
+        raise SystemExit(f"no timed ledger steps in {task_dir}")
+    return f"{day}T{times[0]}", f"{day}T{times[-1]}"
+
+
+def parse_transcript(path: Path, since: str | None = None, until: str | None = None) -> dict:
     usage_by_msg: dict[str, dict] = {}
     tool_calls = 0
     user_prompts = 0
@@ -33,6 +44,10 @@ def parse_transcript(path: Path) -> dict:
         except Exception:
             continue
         ts = d.get("timestamp")
+        if since and (not ts or ts[:19] < since[:19]):
+            continue
+        if until and (not ts or ts[:19] > until[:19]):
+            continue
         if ts:
             first_ts = first_ts or ts
             last_ts = ts
@@ -93,12 +108,19 @@ def main(argv=None) -> int:
     ap.add_argument("--task", default="")
     ap.add_argument("--reason", default="")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--task-window", action="store_true",
+                    help="count only transcript entries between the task's first and last LEDGER step")
     a = ap.parse_args(argv)
     p = Path(a.transcript).expanduser()
     if not p.exists():
         print(f"transcript not found: {p}", file=sys.stderr)
         return 1
-    stats = parse_transcript(p)
+    since = until = None
+    if a.task_window and a.task:
+        since, until = task_window(ROOT / "tasks" / a.task)
+    stats = parse_transcript(p, since, until)
+    if since:
+        stats["window"] = f"{since}..{until}"
     row = {"date": datetime.now(timezone.utc).date().isoformat(), "session": a.session[:12], "task": a.task,
            "end_reason": a.reason, **stats}
     print(json.dumps(row))

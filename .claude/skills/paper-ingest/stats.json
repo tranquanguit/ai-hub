@@ -1,7 +1,13 @@
 {
-  "runs": 0,
-  "passes": 0,
+  "runs": 1,
+  "passes": 1,
   "failures": 0,
   "last_failure": null,
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "last_run": "2026-11-11T00:53:34+00:00",
+  "scripted_steps": 4,
+  "reasoned_steps": 1,
+  "step_counts": {
+    "write card": 1
+  }
 }

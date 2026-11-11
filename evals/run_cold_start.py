@@ -195,6 +195,7 @@ def main(argv=None) -> int:
     ap.add_argument("--label", default="run")
     ap.add_argument("--parallel", type=int, default=3)
     ap.add_argument("--keep", action="store_true")
+    ap.add_argument("--baseline", help="results.json to compare against (default: previous valid run)")
     ap.add_argument("--grade-only")
     ap.add_argument("--compare-only", action="store_true")
     ap.add_argument("--no-questions", action="store_true", help="do not file questions into memory/inbox")
@@ -217,7 +218,7 @@ def main(argv=None) -> int:
     now = datetime.now(timezone.utc)
     outdir = RUNS / now.strftime("%Y-%m-%d") / f"{now.strftime('%H%M%S')}-{a.label}"
     outdir.mkdir(parents=True, exist_ok=True)
-    prev = previous_results(outdir)
+    prev = (ROOT / a.baseline) if a.baseline else previous_results(outdir)
     with cf.ThreadPoolExecutor(max_workers=a.parallel) as ex:
         def draft_for(t):
             if t in a.use_draft or ("all" in a.use_draft and (ROOT / ".claude" / "skill-drafts" / t).exists()):

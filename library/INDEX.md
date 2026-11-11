@@ -26,6 +26,7 @@ The only library file other parts of the repo point to. Cards are summaries (hot
 - [2409.07429](cards/2409.07429.md) **Agent Workflow Memory** — Agents do better on long-horizon tasks when they induce reusable sub-task workflows from past successful trajectories and supply the relevant ones to later runs.
 - [2502.12110](cards/2502.12110.md) **A-MEM: Agentic Memory for LLM Agents** — Memory notes that carry keywords and tags and are linked to related notes retrieve better than flat stores.
 - [2504.07952](cards/2504.07952.md) **Dynamic Cheatsheet: Test-Time Learning with Adaptive Memory** — A curated, evolving store of short reusable insights improves a frozen model across tasks without weight updates.
+- [2504.19413](cards/2504.19413.md) **Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory** — An extract-then-update memory pipeline, where each candidate fact is compared with similar stored memories and turned into one explicit operation, keeps long-term memory consistent at a fraction of full-context cost.
 - [2510.04618](cards/2510.04618.md) **Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models** — Treating context as an evolving playbook, updated by small itemised deltas through separate generator, reflector and curator roles, avoids brevity bias and context collapse and improves agents and domain reasoning.
 
 ## Documentation (cite as `doc:<id>`; URLs in MANIFEST.csv)

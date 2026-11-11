@@ -1,0 +1,5 @@
+Proposal: card 2504.19413 may affect these DESIGN.md decisions (human decides):
+- DESIGN.md#memory-tiers  (overlap 11: check, context, evidence, fact, full, memories, memory, onto)
+- DESIGN.md#learning-loop  (overlap 11: context, evidence, fact, helpful, learning-loop, memory, plus, promote)
+- DESIGN.md#external-feedback-gate  (overlap 8: evidence, explicit, external, human, memory, promote, tool, tools)
+- DESIGN.md#retrieval  (overlap 8: evidence, fact, facts, helpful, memory, promote, retrieval, tools)

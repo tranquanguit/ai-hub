@@ -69,7 +69,7 @@ Insights come from both successes and failures and carry helpful/harmful counter
 ## conflicts
 **Decision.** A candidate that contradicts an existing fact goes to `memory/conflicts/` with both sources and is never auto-merged. A human or a new external signal resolves it.
 **Rejected.** Last-writer-wins.
-**Evidence.** 2510.04618 (non-destructive deltas preserve knowledge); 2502.12110 (memory evolution updates notes through links rather than overwriting); 2310.01798 (the model's own belief is not a reliable arbiter).
+**Evidence.** 2510.04618 (non-destructive deltas preserve knowledge); 2502.12110 (memory evolution updates notes through links rather than overwriting); 2310.01798 (the model's own belief is not a reliable arbiter); 2504.19413 (Mem0 confirms typed per-candidate operations work at scale, but lets the LLM DELETE contradicted facts. We deliberately replace that with set-aside, added via paper-ingest).
 
 ## compaction-ledger
 **Decision.** The PreCompact hook appends the working state (open task, last ledger step, files touched) to the task's `LEDGER.md`, and its stdout tells the compactor to keep the task path and done-criteria.

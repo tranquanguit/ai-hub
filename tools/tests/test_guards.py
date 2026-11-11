@@ -153,3 +153,16 @@ def test_card_validator(tmp_path):
     card.write_text(card.read_text().replace("## Limits\ntext\n", "").replace("learning-loop]", "nope]"))
     errs = library_index.check_card(card, tmp_path)
     assert any("Limits" in e for e in errs) and any("anchor" in e for e in errs)
+
+
+def test_session_stats_task_window(tmp_path):
+    d = tmp_path / "t"
+    d.mkdir()
+    (d / "TASK.md").write_text("---\ncreated: 2026-11-10\n---\n")
+    (d / "LEDGER.md").write_text("- 10:00:00 [scripted] a -> b -> c\n- 10:05:00 [reasoned] a -> b -> c\n")
+    assert session_stats.task_window(d) == ("2026-11-10T10:00:00", "2026-11-10T10:05:00")
+    lines = [{"type": "assistant", "timestamp": "2026-11-10T09:59:00Z", "message": {"id": "a", "usage": {"output_tokens": 100}}},
+             {"type": "assistant", "timestamp": "2026-11-10T10:02:00Z", "message": {"id": "b", "usage": {"output_tokens": 7}}}]
+    p = tmp_path / "tr.jsonl"
+    p.write_text("\n".join(json.dumps(l) for l in lines))
+    assert session_stats.parse_transcript(p, "2026-11-10T10:00:00", "2026-11-10T10:05:00")["tokens_out"] == 7

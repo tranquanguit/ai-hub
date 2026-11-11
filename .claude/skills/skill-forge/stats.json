@@ -1,7 +1,13 @@
 {
-  "runs": 0,
-  "passes": 0,
+  "runs": 1,
+  "passes": 1,
   "failures": 0,
   "last_failure": null,
-  "version": "1.0.1"
+  "version": "1.0.1",
+  "last_run": "2026-11-10T19:15:45+00:00",
+  "scripted_steps": 4,
+  "reasoned_steps": 1,
+  "step_counts": {
+    "apply deltas": 1
+  }
 }

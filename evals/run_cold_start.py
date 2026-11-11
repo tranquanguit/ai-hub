@@ -236,6 +236,12 @@ def main(argv=None) -> int:
     res = {"run": str(outdir.relative_to(ROOT)), "date": now.isoformat(timespec="seconds"), "commit": git("rev-parse", "--short", "HEAD"),
            "model": a.model, "label": a.label, "results": results}
     (outdir / "results.json").write_text(json.dumps(res, indent=1, ensure_ascii=False))
+    errored = [r["task"] for r in results if r.get("is_error") or r.get("error")]
+    if errored:  # a session that errored (usage limit, crash) says nothing about the skill
+        (outdir / "INVALID.md").write_text(f"# INVALID run\n\nSessions errored for: {', '.join(errored)}. "
+                                           "Excluded from comparisons; re-run.\n")
+        print(f"INVALID run: sessions errored for {errored}")
+        return 2
     cmp_lines = compare(res, prev)
     print(write_summary(res, cmp_lines, outdir))
     if not a.no_questions:

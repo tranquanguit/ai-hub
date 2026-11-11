@@ -128,6 +128,19 @@ def test_pretooluse_pii_allows_business_contacts_and_prices(proj):
     assert run("pre_tool_use.py", write(str(proj / "memory/inbox/a.md"), ok), proj, role="founder")[1] == ""
 
 
+def test_pretooluse_outside_repo_writes(proj, tmp_path):
+    # agent's own plan/scratchpad notes may mention repo paths; company data written to a home dir may not
+    plan = os.path.expanduser("~/.claude/plans/p.md")
+    assert run("pre_tool_use.py", write(plan, "see data/sales and memory/INDEX.md"), proj, role="founder")[1] == ""
+    out = run("pre_tool_use.py", write("/root/mycopy/leads.md", "copied from data/sales/leads.csv"), proj, role="founder")[1]
+    assert decision(out) == "deny" and "R16" in out["hookSpecificOutput"]["permissionDecisionReason"]
+
+
+def test_pretooluse_hook_never_crashes_on_write(proj):
+    rc, out = run("pre_tool_use.py", write(str(proj / "memory/inbox/ok.md"), "fine"), proj, role="founder")
+    assert rc == 0 and out == ""
+
+
 def test_pretooluse_asks_for_rule_changes(proj):
     assert decision(run("pre_tool_use.py", write(str(proj / "RULES.md")), proj, role="founder")[1]) == "ask"
     assert decision(run("pre_tool_use.py", bash("sed -i 's/a/b/' RULES.md"), proj, role="founder")[1]) == "ask"

@@ -1,0 +1,26 @@
+{
+ "passed": false,
+ "score": 0.5,
+ "checks": [
+  {
+   "name": "task_folder_created",
+   "ok": true,
+   "info": "task-start was used"
+  },
+  {
+   "name": "deliverable_exists",
+   "ok": false,
+   "info": "phase-plan.md"
+  },
+  {
+   "name": "evidence_saved",
+   "ok": true,
+   "info": "4 evidence files"
+  },
+  {
+   "name": "scripted_step_logged",
+   "ok": false,
+   "info": "deterministic step ran as a script"
+  }
+ ]
+}

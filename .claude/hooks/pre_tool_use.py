@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import fnmatch
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -155,7 +156,10 @@ def decide(data: dict) -> tuple[str, str, str | None] | None:
             return "deny", f"Blocked (R17): {v}.", "role-boundary" if role else None
 
     if tool in ("Write", "Edit", "MultiEdit", "NotebookEdit"):
-        if path and rel is None and not str(path).startswith(("/tmp/", str(c.ROOT))):
+        # Agent working notes (plan file, session scratchpad) are not company data leaving the repo.
+        own = tuple(p for p in ("/tmp/", str(c.ROOT), os.path.expanduser("~/.claude/plans/"),
+                                data.get("scratchpad_dir") or "") if p)
+        if path and rel is None and not str(path).startswith(own):
             content = json.dumps(ti)
             if re.search(r"data/|memory/|canon/", content) or scan(content, PII):
                 return "deny", "Blocked (R16): writing company data outside the repo.", "exfiltration"

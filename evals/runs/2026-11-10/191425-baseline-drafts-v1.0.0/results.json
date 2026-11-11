@@ -1,0 +1,65 @@
+{
+ "run": "evals/runs/2026-11-10/191425-baseline-drafts-v1.0.0",
+ "date": "2026-11-10T19:14:25+00:00",
+ "commit": "6042f80",
+ "model": "sonnet",
+ "label": "baseline-drafts-v1.0.0",
+ "results": [
+  {
+   "task": "cs-training",
+   "passed": false,
+   "score": 0.75,
+   "model": "sonnet",
+   "draft": "cs-training",
+   "tokens_in": 383125,
+   "tokens_out": 13202,
+   "cost_usd": 0.2819028,
+   "turns": 14,
+   "duration_s": 92.0,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": true,
+   "failed_checks": [
+    "deliverable_exists"
+   ]
+  },
+  {
+   "task": "ops-review",
+   "passed": false,
+   "score": 0.882,
+   "model": "sonnet",
+   "draft": "ops-review",
+   "tokens_in": 451508,
+   "tokens_out": 9138,
+   "cost_usd": 0.24638690000000002,
+   "turns": 15,
+   "duration_s": 80.8,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": true,
+   "failed_checks": [
+    "scripted_step_logged",
+    "content:skin_reaction_escalated"
+   ]
+  },
+  {
+   "task": "phase-plan",
+   "passed": false,
+   "score": 0.5,
+   "model": "sonnet",
+   "draft": "phase-plan",
+   "tokens_in": 420520,
+   "tokens_out": 10318,
+   "cost_usd": 0.23940630000000002,
+   "turns": 13,
+   "duration_s": 78.9,
+   "questions": [],
+   "questions_asked": 0,
+   "is_error": true,
+   "failed_checks": [
+    "deliverable_exists",
+    "scripted_step_logged"
+   ]
+  }
+ ]
+}

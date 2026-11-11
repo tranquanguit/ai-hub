@@ -1,0 +1,6 @@
+implied AOV 231134 gap 264140400 gap% 22.0
+AOV needed same orders 296369
+L1 combos +15% AOV on 40% orders 56151576
+L2 reserve 30M at ROAS 4.2 126000000
+L3 repeat 18% x orders x 300k 218646000
+L4 AOV +10% all 93585960

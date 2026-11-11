@@ -1,0 +1,26 @@
+{
+ "passed": false,
+ "score": 0.75,
+ "checks": [
+  {
+   "name": "task_folder_created",
+   "ok": true,
+   "info": "task-start was used"
+  },
+  {
+   "name": "deliverable_exists",
+   "ok": false,
+   "info": "cs-training.md"
+  },
+  {
+   "name": "evidence_saved",
+   "ok": true,
+   "info": "3 evidence files"
+  },
+  {
+   "name": "scripted_step_logged",
+   "ok": true,
+   "info": "deterministic step ran as a script"
+  }
+ ]
+}

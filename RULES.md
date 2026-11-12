@@ -92,8 +92,8 @@ Hook tests: `.claude/hooks/tests/test_hooks.py`. Each enforced rule has at least
 ## R15
 **Customer personal data is never disclosed.** VN phone numbers, emails, CCCD numbers and addresses of customers never enter `memory/`, `tasks/`, `evals/`, `metrics/`, `library/` or any output. Use aggregates or pseudonyms (`KH-0012`).
 - Why: intake answer 4 (founder never-event).
-- Enforced by: PII patterns in the PreToolUse hook (writes outside `data/*/private/`); `secret_scan.py --pii` in pre-commit; `data/*/private/` is gitignored; golden graders fail any output containing PII.
-- Exception: `data/cs/private/` for roles with `private: true`.
+- Enforced by: `pii_scan` in the PreToolUse hook (writes outside `data/*/private/`; digit groups written with spaces, dots or dashes are joined before matching); the same function in `secret_scan.py` at pre-commit; `data/*/private/` is gitignored; golden graders fail any output containing PII.
+- Exception: `data/cs/private/` for roles with `private: true`; **business** contacts listed in `canon/business-contacts.json` (company hotlines, suppliers, manufacturers). That file needs human approval for every change and never lists customers.
 
 ## R16
 **No personal copies of company data; incidents reach the admin.** Copying, archiving or uploading company data out of the repo is blocked, and every block is logged.

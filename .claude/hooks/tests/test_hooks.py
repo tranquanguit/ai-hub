@@ -131,6 +131,22 @@ def test_pretooluse_blocks_pii_outside_private(proj, content):
     assert run("pre_tool_use.py", write(str(proj / "data/cs/private/t.md"), content), proj, role="cs")[1] == ""
 
 
+def test_pretooluse_pii_spaced_numbers_and_business_allowlist(proj):
+    spaced = "Khách gọi 09" + "12 345 678 hỏi đơn"
+    assert decision(run("pre_tool_use.py", write(str(proj / "memory/inbox/a.md"), spaced), proj, role="founder")[1]) == "deny"
+    dotted = "SĐT 09" + "12.345.678"
+    assert decision(run("pre_tool_use.py", write(str(proj / "memory/inbox/b.md"), dotted), proj, role="founder")[1]) == "deny"
+    (proj / "canon" / "business-contacts.json").write_text(json.dumps(
+        {"contacts": [{"name": "company hotline", "phone": "08" + "47 185 878"}]}))
+    hotline = "Hotline/Zalo nhận đơn: 08" + "47 185 878"
+    assert run("pre_tool_use.py", write(str(proj / "tasks/x/d.md"), hotline), proj, role="founder")[1] == ""
+    both = hotline + " ; khách 09" + "12345678"
+    assert decision(run("pre_tool_use.py", write(str(proj / "tasks/x/e.md"), both), proj, role="founder")[1]) == "deny"
+    # the allowlist itself is not PII-scanned but every edit asks a human
+    allow = write(str(proj / "canon/business-contacts.json"), hotline)
+    assert decision(run("pre_tool_use.py", allow, proj, role="founder")[1]) == "ask"
+
+
 def test_pretooluse_pii_allows_business_contacts_and_prices(proj):
     ok = "Giá 450000 VND, đơn 12 chiếc, email support@lunobeau.vn, demo@example.com, 2026-11-10"
     assert run("pre_tool_use.py", write(str(proj / "memory/inbox/a.md"), ok), proj, role="founder")[1] == ""

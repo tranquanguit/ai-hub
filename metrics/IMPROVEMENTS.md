@@ -55,3 +55,13 @@ Every self-improvement attempt (R6) and every RULES.md change (R14).
 - Prune: nothing to prune (all items < 1 day old).
 - Papers: Mem0 (2504.19413) ingested as extra source 4/8; it informs DESIGN.md#conflicts (we keep set-aside instead of model-decided DELETE).
 - Open for the founder: 2 incidents, 1 memory conflict (TikTok ROAS), 8 decisions in data/founder/decision-log.md, 2 skill deltas in memory/inbox/.
+
+## 2026-11-12 — RULES R15: business-contact allowlist + spaced-number detection
+- Metric: R15 enforcement accuracy
+- Hypothesis: Business hotlines (needed in the Ngọc Hân ads survey) were false positives, and spaced/dotted VN numbers were false negatives; one shared pii_scan fixes both without opening customer data
+- Change: pre_tool_use.py pii_scan (join digit groups, honour canon/business-contacts.json); secret_scan uses it; allowlist is ask-protected; R15 exception text updated
+- Eval before: spaced number '09xx xxx xxx' passed the guard; company hotline blocked
+- Eval after: hook tests 36/36 incl. spaced/dotted deny, allowlisted hotline allowed, mixed hotline+customer number denied; repo scan PASS
+- Decision: **kept**
+- Evidence: .claude/hooks/tests/test_hooks.py, founder approval in chat 2026-11-12
+- Type: RULES.md change (R14)

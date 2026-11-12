@@ -46,11 +46,9 @@ def scan_file(rel: str) -> list[str]:
             if re.search(pat, text):
                 hits.append(f"{rel}: secret ({label})")
     if not any(fnmatch.fnmatch(rel, g) for g in PII_EXEMPT):
-        for pat, label in ptu.PII:
-            m = re.search(pat, text)
-            if m:
-                line = text[:m.start()].count("\n") + 1
-                hits.append(f"{rel}:{line}: PII ({label})")
+        label = ptu.pii_scan(text)  # same rules as the hook: spaced numbers joined, business allowlist honoured
+        if label:
+            hits.append(f"{rel}: PII ({label})")
     return hits
 
 

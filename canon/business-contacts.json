@@ -1,0 +1,8 @@
+{
+  "_doc": "Founder-approved allowlist of BUSINESS contacts that may appear in deliverables and memory (company hotlines, suppliers, manufacturers, ads partners). Read by .claude/hooks/pre_tool_use.py and tools/secret_scan.py (RULES R15 exception). Never list customers here. Changes need human approval (the hook asks).",
+  "contacts": [
+    {"name": "Mỹ Phẩm Ngọc Hân – hotline/Zalo nhận đơn", "phone": "0847 185 878", "type": "company-hotline",
+     "source": "tasks/2026-11-12-khao-sat-ads-ngoc-han/evidence/source/khao-sat-goc.docx (Phần 4)",
+     "approved_by": "founder, 2026-11-12 (chat approval of the allowlist)", "number_confirmed": false}
+  ]
+}

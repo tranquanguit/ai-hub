@@ -58,8 +58,10 @@ PROTECTED_WRITE = [  # R3: only scripts (promote/skill_stats/ledger/hooks) write
 # because `python3 .claude/skills/x/scripts/y.py > $T/evidence/z.txt` is the normal pattern).
 VARIABLE_GUARD_STORES = ["memory/semantic", "memory/INDEX.md", "memory/archive", "metrics/ledger.jsonl",
                          "metrics/sessions.jsonl", "evals/runs", "library/MANIFEST.csv", "incidents/", ".claude/state"]
-ASK_WRITE = ["RULES.md", ".claude/settings.json", ".claude/hooks/**", "canon/roles/ROLES.json", ".githooks/**"]
-PRIVATE_OK = ["data/*/private/**"]
+ASK_WRITE = ["RULES.md", ".claude/settings.json", ".claude/hooks/**", "canon/roles/ROLES.json", ".githooks/**",
+             "canon/business-contacts.json"]
+PRIVATE_OK = ["data/*/private/**",
+              "canon/business-contacts.json"]  # the allowlist itself; every edit to it asks a human (ASK_WRITE)
 
 SECRETS = [
     (r"AKIA[0-9A-Z]{16}", "AWS key"), (r"sk-ant-[A-Za-z0-9_-]{20,}", "Anthropic key"),
@@ -78,6 +80,36 @@ PII = [
 
 def match_any(rel: str, globs: list[str]) -> bool:
     return any(fnmatch.fnmatch(rel, g) for g in globs)
+
+
+def business_contacts() -> tuple[set[str], set[str]]:
+    """Founder-approved allowlist (canon/business-contacts.json): company hotlines, suppliers, manufacturers.
+    Customer data is never listed there (R15)."""
+    try:
+        d = json.loads((c.ROOT / "canon" / "business-contacts.json").read_text())
+    except Exception:
+        return set(), set()
+    phones = set()
+    for x in d.get("contacts", []):
+        digits = re.sub(r"\D", "", x.get("phone", ""))
+        if digits.startswith("84"):
+            digits = "0" + digits[2:]
+        if digits:
+            phones.add(digits)
+    emails = {x["email"].lower() for x in d.get("contacts", []) if x.get("email")}
+    return phones, emails
+
+
+def pii_scan(text: str) -> str | None:
+    """PII check that joins digit groups written with spaces, dots or dashes ("09xx xxx xxx") before matching,
+    and ignores contacts on the business allowlist."""
+    t = re.sub(r"(?<=\d)[ .\-](?=\d)", "", text or "")
+    phones, emails = business_contacts()
+    for ph in phones:
+        t = t.replace("+84" + ph[1:], " ").replace("84" + ph[1:], " ").replace(ph, " ")
+    for em in emails:
+        t = re.sub(re.escape(em), " ", t, flags=re.I)
+    return scan(t, PII)
 
 
 def scan(text: str, patterns) -> str | None:
@@ -179,7 +211,7 @@ def decide(data: dict) -> tuple[str, str, str | None] | None:
         if s:
             return "deny", f"Blocked (R12): content contains a {s}. Never store secrets in the repo, logs or memory.", "secret"
         if not (rel and match_any(rel, PRIVATE_OK)):
-            p = scan(content, PII)
+            p = pii_scan(content)
             if p:
                 return "deny", (f"Blocked (R15): content contains a {p}. Customer personal data may live only in "
                                 "data/<role>/private/ (gitignored). Use aggregates or a pseudonym like KH-0012."), "pii"
